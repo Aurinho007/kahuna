@@ -1,0 +1,71 @@
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    height: 85px;
+    background-color: var(--blue);
+}
+
+#header-container-img-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 10vw;
+}
+
+#img-logo{
+    width: 55px;
+}
+
+#texto-logo {
+    color: var(--gray);
+    font-size: 2rem;
+    font-family: var(--title);
+    font-weight: 500;
+    margin-left: -8px;
+}
+
+#header-container-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-right: 10vw;
+    width: 260px;
+
+}
+
+.primary-btn {
+    width: 120px;
+    height: 2.2rem;
+    border-radius: 5px;
+    font-family: var(--text);
+    font-size: 1.1rem;
+    
+}
+
+#btn-add-invest {
+    background-color: var(--blue);
+    color: var(--gray);
+    border: solid 3px var(--blue)
+}
+
+#btn-add-invest:hover {
+    color: #f8c572;
+}
+
+#btn-how-use {
+    color: var(--black);
+    background-color: var(--yellow);
+    border: solid 3px var(--yellow)
+}
+
+#btn-how-use:hover {
+    background-color: #f8c572;
+    border: solid 3px #f8c572
+
+}
+
+
+

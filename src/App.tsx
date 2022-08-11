@@ -1,9 +1,11 @@
-import './App.css'
+import './assets/App.css'
+import Header from './components/Header'
 
 function App() {
 
   return (
     <>
+      <Header/>
     </>
   )
 }
