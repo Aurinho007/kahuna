@@ -6,6 +6,7 @@ import CoinInterface from "../../types/CoinInterface";
 import Investment from "../../types/Investment";
 import { dateToLiteralDate } from "../../helpers/DateHelper";
 import './index.css'
+import CardBody from "../CardBody";
 
 function Investiment({ ticker, name, purchaseData }: Investment) {
   const [favorite, setFavorite] = useState<boolean>(false);
@@ -35,7 +36,9 @@ function Investiment({ ticker, name, purchaseData }: Investment) {
         </div>
 
       </Accordion.Header>
-      <Accordion.Body className="openned-card"></Accordion.Body>
+      <Accordion.Body className="openned-card">
+        <CardBody/>
+      </Accordion.Body>
     </Accordion.Item>
   );
 }

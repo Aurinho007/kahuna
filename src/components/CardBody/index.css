@@ -1,0 +1,41 @@
+.container-card-body {
+    color: var(--white);
+    display: flex;
+    flex-direction: row;
+}
+
+.user-purchase {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.user-purchase-title {
+    font-family: var(--title);
+    font-size: 1.3rem;
+    padding-bottom: 18px;
+    font-weight: bold;
+}
+
+.user-purchase-info {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
+}
+
+.user-purchase-label{
+    font-family: var(--title);
+    font-size: 1.1rem;
+    padding-bottom: 5px;
+    color: var(--whiteLabel)
+
+}
+
+.user-purchase-value {
+    font-family: var(--text);
+    font-size: .9rem;
+}
+
+.important-value {
+    color: var(--yellow)
+}
