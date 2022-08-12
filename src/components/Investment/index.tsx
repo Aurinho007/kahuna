@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import { Accordion, Form } from "react-bootstrap";
-import { AiOutlineStar, AiTwotoneStar } from "react-icons/ai";
+import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import './index.css'
 
 function Investiment() {
@@ -18,7 +18,7 @@ function Investiment() {
             onClick={() => setFavorite(!favorite)}
           />
          : 
-          <AiTwotoneStar
+          <AiFillStar
             className="btn-fav"
             onClick={() => setFavorite(!favorite)}
           />
