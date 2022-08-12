@@ -13,13 +13,12 @@ function Investiment({ ticker, name }: CoinInterface) {
       <Accordion.Header className="closed-card">
         {
         favorite ? 
-
-          <AiOutlineStar
+          <AiFillStar
             className="btn-fav"
             onClick={() => setFavorite(!favorite)}
           />
-         : 
-          <AiFillStar
+          : 
+          <AiOutlineStar
             className="btn-fav"
             onClick={() => setFavorite(!favorite)}
           />
