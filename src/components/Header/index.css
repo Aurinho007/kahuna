@@ -5,6 +5,9 @@
     width: 100vw;
     height: 85px;
     background-color: var(--blue);
+    position: fixed;
+    z-index: 4;
+    top: 0;
 }
 
 #header-container-img-logo {

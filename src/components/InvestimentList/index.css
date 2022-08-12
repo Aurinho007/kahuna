@@ -1,12 +1,29 @@
-#container-investment-list{
+#container-investment-list {
+    margin-top: 85px;
+}
+
+#container-investment-list, .investiments-view{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.investiments-view {
+    width: 60%;
+    margin-top: 1.5rem;
+}
+
+.investiments-view h1 {
+    color: var(--gray);
+    font-size: 1.7rem;
+    font-family: var(--title);
+    width: 100%;
+
+}
+
 #investment-list {
-    margin-top: 50px;
+    margin-top: 20px;
     width: 60vw;
     height: auto;
     max-height: 70vh;
@@ -17,4 +34,6 @@
     --bs-accordion-btn-focus-box-shadow:  var(--grafite);
     --bs-accordion-active-color:  var(--grafite);
     --bs-accordion-active-bg:  var(--grafite);
+    --bs-accordion-border-color: var(--grafite);
 }
+

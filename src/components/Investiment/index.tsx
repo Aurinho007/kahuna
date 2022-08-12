@@ -3,9 +3,11 @@ import { useState } from "react";
 import { Accordion, Form } from "react-bootstrap";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import CoinInterface from "../../types/CoinInterface";
+import Investment from "../../types/Investment";
+import { dateToLiteralDate } from "../../helpers/DateHelper";
 import './index.css'
 
-function Investiment({ ticker, name }: CoinInterface) {
+function Investiment({ ticker, name, purchaseData }: Investment) {
   const [favorite, setFavorite] = useState<boolean>(false);
 
   return (
@@ -26,6 +28,10 @@ function Investiment({ ticker, name }: CoinInterface) {
         <div className="coin-description">
           <p className="coin-ticker">{ticker}</p>
           <p className="coin-name">{name}</p>
+        </div>
+
+        <div className="coin-date">
+          <p>{dateToLiteralDate(new Date())}</p>
         </div>
 
       </Accordion.Header>
