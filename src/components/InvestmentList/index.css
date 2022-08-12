@@ -14,8 +14,8 @@
 }
 
 .accordion {
---bs-accordion-btn-focus-border-color: var(--grafite);
---bs-accordion-btn-focus-box-shadow:  var(--grafite);
---bs-accordion-active-color:  var(--grafite);
---bs-accordion-active-bg:  var(--grafite);
+    --bs-accordion-btn-focus-border-color: var(--grafite);
+    --bs-accordion-btn-focus-box-shadow:  var(--grafite);
+    --bs-accordion-active-color:  var(--grafite);
+    --bs-accordion-active-bg:  var(--grafite);
 }
