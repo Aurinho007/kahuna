@@ -5,6 +5,8 @@
 
 .accordion-item {
     background: var(--grafite);
+    border: none;
+    margin-bottom: 5px;
 }
 
 .accordion-button,
@@ -12,11 +14,29 @@
     background: var(--grafite);
 }
 
-.coin-name{
+
+.accordion-item:not() {
+    --bs-accordion-btn-focus-border-color: var(--grafite);
+    --bs-accordion-btn-focus-box-shadow:  var(--grafite);
+    --bs-accordion-active-color:  var(--grafite);
+    --bs-accordion-active-bg:  var(--grafite);
+}
+
+.coin-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.coin-ticker{
     padding-left: 2rem;
     font-family: var(--title);
     font-weight: bold;
-    color: var(--white)
+    color: #eee;
 }
 
-
+.coin-name{
+    padding-left: 2rem;
+    font-family: var(--title);
+    color: var(--white);
+    font-size: .8rem;
+}

@@ -19,7 +19,8 @@
 
 
 body {
-    height: 100vh;
+    height: 100%;
     width: 100vw;
-    background: linear-gradient(0, #131e38 0%, #111b20 50%, #0F1A20 100%);
+    background: var(--blue);
+    overflow-x: hidden;
 }
