@@ -14,8 +14,8 @@ function Header() {
                     <p id="texto-logo">ahuna</p>
                 </div>
                 <div id="header-container-btn">
-                    <button className="primary-btn" id="btn-add-invest">Gerenciar</button>
-                    <button className="primary-btn" id="btn-how-use">Saiba Mais</button>
+                    <button className="header-btn" id="btn-add-invest">Gerenciar</button>
+                    <button className="header-btn" id="btn-how-use">Saiba Mais</button>
                     {
                         activeBell ? 
                         <FaBell 

@@ -1,0 +1,22 @@
+.btn-fav {
+    font-size: 25px;
+    color: var(--yellow)
+}
+
+.accordion-item {
+    background: var(--grafite);
+}
+
+.accordion-button,
+.accordion-button:not(.collapsed) {
+    background: var(--grafite);
+}
+
+.coin-name{
+    padding-left: 2rem;
+    font-family: var(--title);
+    font-weight: bold;
+    color: var(--white)
+}
+
+
