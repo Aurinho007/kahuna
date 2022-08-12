@@ -15,12 +15,12 @@
 }
 
 #img-logo{
-    width: 55px;
+    width: 45px;
 }
 
 #texto-logo {
     color: var(--gray);
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-family: var(--title);
     font-weight: 500;
     margin-left: -8px;
@@ -33,16 +33,14 @@
     justify-content: space-evenly;
     padding-right: 10vw;
     width: 260px;
-
 }
 
 .primary-btn {
-    width: 120px;
-    height: 2.2rem;
+    width: 100px;
+    height: 2rem;
     border-radius: 5px;
     font-family: var(--text);
-    font-size: 1.1rem;
-    
+    font-size: 0.85rem;
 }
 
 #btn-add-invest {
@@ -52,7 +50,7 @@
 }
 
 #btn-add-invest:hover {
-    color: #f8c572;
+    color: var(--yellow);
 }
 
 #btn-how-use {
@@ -62,10 +60,13 @@
 }
 
 #btn-how-use:hover {
-    background-color: #f8c572;
-    border: solid 3px #f8c572
-
+    background-color: #ecb620;
+    border: solid 3px #ecb620;
 }
 
-
-
+.btn-bell {
+    font-size: 18px;
+    color: var(--gray);
+    padding: 0 6%;
+    cursor: pointer;
+}

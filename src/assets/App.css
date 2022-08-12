@@ -5,8 +5,8 @@
 
 :root{
     --black: #000000;
-    --blue: #14213D;
-    --yellow: #f7ab33;
+    --blue: #0F1A20;
+    --yellow: #FFD500;
     --gray: #E5E5E5;
     --white: #FFFFFF;
 
@@ -18,6 +18,6 @@
 
 
 body {
-
-    background-color: var(--gray);
+    height: 100vh;
+    background: linear-gradient(0, #131e38 0%, #111b20 50%, #0F1A20 100%);
 }

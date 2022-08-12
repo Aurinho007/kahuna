@@ -1,7 +1,10 @@
 import * as React from 'react';
 import './index.css'
+import { FaRegBell, FaBell } from 'react-icons/fa'
+import { useState } from 'react';
 
 function Header() {
+    const [activeBell, setActiveBell] = useState<boolean>(false);
 
     return (
         <>
@@ -11,8 +14,20 @@ function Header() {
                     <p id="texto-logo">ahuna</p>
                 </div>
                 <div id="header-container-btn">
-                    <button className="primary-btn" id="btn-add-invest">Adicionar</button>
+                    <button className="primary-btn" id="btn-add-invest">Gerenciar</button>
                     <button className="primary-btn" id="btn-how-use">Saiba Mais</button>
+                    {
+                        activeBell ? 
+                        <FaBell 
+                            className='btn-bell' 
+                            onClick={() => setActiveBell(!activeBell)}
+                        /> 
+                        : 
+                        <FaRegBell 
+                            className='btn-bell' 
+                            onClick={() => setActiveBell(!activeBell)}
+                        /> 
+                    }
                 </div>
             </header>
         </>
