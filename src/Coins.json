@@ -1,0 +1,836 @@
+{
+    "coins": [
+        {
+            "ticker": "AAVE",
+            "name": "Aave"
+        },
+        {
+            "ticker": "ACH",
+            "name": "Alchemy Pay"
+        },
+        {   
+            "ticker": "ACMFT", 
+            "name": "AC Milan"
+        },
+        {   
+            "ticker": "ACORDO01", 
+            "name": "None"
+        },
+        {   
+            "ticker": "ADA", 
+            "name": "Cardano"
+        },
+        {   
+            "ticker": "ADS", 
+            "name": "Adshares"
+        },
+        {   
+            "ticker": "AGIX", 
+            "name": "SingularityNET"
+        },
+        {   
+            "ticker": "AIOZ", 
+            "name": "Aioz"
+        },
+        {   
+            "ticker": "ALCX", 
+            "name": "Alchemix"
+        },
+        {   
+            "ticker": "ALGO", 
+            "name": "Algorand"
+        },
+        {   
+            "ticker": "ALICE", 
+            "name": "MyNeighborAlice"
+        },
+        {   
+            "ticker": "ALLFT", 
+            "name": "Alliance"
+        },
+        {   
+            "ticker": "ALPHA", 
+            "name": "Alpha Venture Dao"
+        },
+        {   
+            "ticker": "AMFT", 
+            "name": "Aston Martin Cognizant"
+        },
+        {   
+            "ticker": "AMP", 
+            "name": "Amp"
+        },
+        {   
+            "ticker": "ANKR", 
+            "name": "ANKR"
+        },
+        {   
+            "ticker": "ANT", 
+            "name": "Aragon"
+        },
+        {   
+            "ticker": "APE", 
+            "name": "ApeCoin"
+        },
+        {   
+            "ticker": "API3", 
+            "name": "API3"
+        },
+        {   
+            "ticker": "ARGFT", 
+            "name": "Argentine Football Association"
+        },
+        {   
+            "ticker": "ASRFT", 
+            "name": "AS Roma"
+        },
+        {   
+            "ticker": "ATLAS", 
+            "name": "Star Atlas"
+        },
+        {   
+            "ticker": "ATMFT", 
+            "name": "Fan Token ATM"
+        },
+        {   
+            "ticker": "ATOM", 
+            "name": "Cosmos"
+        },
+        {   
+            "ticker": "AUDIO", 
+            "name": "Audius"
+        },
+        {   
+            "ticker": "AVAX", 
+            "name": "Avalanche"
+        },
+        {   
+            "ticker": "AXS", 
+            "name": "Axie Infinity"
+        },
+        {   
+            "ticker": "BADGER", 
+            "name": "Badger DAO"
+        },
+        {   
+            "ticker": "BAL", 
+            "name": "Balancer"
+        },
+        {   
+            "ticker": "BAND", 
+            "name": "Band Protocol"
+        },
+        {   
+            "ticker": "BARFT", 
+            "name": "FC Barcelona"
+        },
+        {   
+            "ticker": "BAT", 
+            "name": "Basic Attention token"
+        },
+        {   
+            "ticker": "BCH", 
+            "name": "Bitcoin Cash"
+        },
+        {   
+            "ticker": "BICO", 
+            "name": "Biconomy"
+        },
+        {   
+            "ticker": "BLZ", 
+            "name": "Bluzelle"
+        },
+        {   
+            "ticker": "BNT", 
+            "name": "BANCOR"
+        },
+        {   
+            "ticker": "BTC", 
+            "name": "Bitcoin"
+        },
+        {   
+            "ticker": "BTRST", 
+            "name": "Braintrust"
+        },
+        {   
+            "ticker": "CAIFT", 
+            "name": "Fan Token CAI"
+        },
+        {   
+            "ticker": "CEEK", 
+            "name": "CEEK VR"
+        },
+        {   
+            "ticker": "CHZ", 
+            "name": "Chiliz"
+        },
+        {   
+            "ticker": "CITYFT", 
+            "name": "Manchester City FC"
+        },
+        {   
+            "ticker": "CLV", 
+            "name": "Clover Finance"
+        },
+        {   
+            "ticker": "COMP", 
+            "name": "Compound"
+        },
+        {   
+            "ticker": "COTI", 
+            "name": "COTI"
+        },
+        {   
+            "ticker": "CRV", 
+            "name": "Curve Dao Token"
+        },
+        {   
+            "ticker": "CSCONS01", 
+            "name": "Consorcio CS01"
+        },
+        {   
+            "ticker": "CSCONS02", 
+            "name": "Consorcio CS02"
+        },
+        {   
+            "ticker": "CSCONS03", 
+            "name": "Consórcio CS03"
+        },
+        {   
+            "ticker": "CSCONS04", 
+            "name": "Consorcio CS04"
+        },
+        {   
+            "ticker": "CSCONS05", 
+            "name": "Consorcio CS05"
+        },
+        {   
+            "ticker": "CTSI", 
+            "name": "Cartesi"
+        },
+        {   
+            "ticker": "CVC", 
+            "name": "Civic"
+        },
+        {   
+            "ticker": "CVX", 
+            "name": "Convex Finance"
+        },
+        {   
+            "ticker": "DAI", 
+            "name": "Dai"
+        },
+        {   
+            "ticker": "DG", 
+            "name": "Decentral Games"
+        },
+        {   
+            "ticker": "DIA", 
+            "name": "DIA"
+        },
+        {   
+            "ticker": "DOGE", 
+            "name": "Dogecoin"
+        },
+        {   
+            "ticker": "DOT", 
+            "name": "Polkadot"
+        },
+        {   
+            "ticker": "DPI", 
+            "name": "DeFi Pulse Index"
+        },
+        {   
+            "ticker": "DYDX", 
+            "name": "dYdX"
+        },
+        {   
+            "ticker": "ENER01", 
+            "name": "Token de Energia"
+        },
+        {   
+            "ticker": "ENJ", 
+            "name": "Enjin Coin"
+        },
+        {   
+            "ticker": "ENS", 
+            "name": "Ethereum Name Service"
+        },
+        {   
+            "ticker": "ERN", 
+            "name": "Ethernity"
+        },
+        {   
+            "ticker": "ETH", 
+            "name": "Ethereum"
+        },
+        {   
+            "ticker": "FARM", 
+            "name": "Harvest Finance"
+        },
+        {   
+            "ticker": "FET", 
+            "name": "Fetch.ai"
+        },
+        {   
+            "ticker": "FIL", 
+            "name": "Filecoin"
+        },
+        {   
+            "ticker": "FLOKI", 
+            "name": "Floki Inu"
+        },
+        {   
+            "ticker": "FLOW", 
+            "name": "Flow"
+        },
+        {   
+            "ticker": "GALA", 
+            "name": "Gala"
+        },
+        {   
+            "ticker": "GALFT", 
+            "name": "Galatasaray"
+        },
+        {   
+            "ticker": "GALOFT", 
+            "name": "Clube Atletico Mineiro"
+        },
+        {   
+            "ticker": "GHST", 
+            "name": "Aavegotchi"
+        },
+        {   
+            "ticker": "GMT", 
+            "name": "STEPN"
+        },
+        {   
+            "ticker": "GNO", 
+            "name": "Gnosis"
+        },
+        {   
+            "ticker": "GODS", 
+            "name": "Gods Unchained"
+        },
+        {   
+            "ticker": "GRT", 
+            "name": "The Graph"
+        },
+        {   
+            "ticker": "GST", 
+            "name": "Green Satoshi Token"
+        },
+        {   
+            "ticker": "HIGH", 
+            "name": "Highstreet"
+        },
+        {   
+            "ticker": "HOT", 
+            "name": "Holo"
+        },
+        {   
+            "ticker": "ICP", 
+            "name": "Internet Computer"
+        },
+        {   
+            "ticker": "ILV", 
+            "name": "Illuvium"
+        },
+        {   
+            "ticker": "IMOB01", 
+            "name": "None"
+        },
+        {   
+            "ticker": "IMOB02", 
+            "name": "None"
+        },
+        {   
+            "ticker": "IMX", 
+            "name": "Immutable X'"
+        },
+        {   
+            "ticker": "INTERFT", 
+            "name": "Inter Milan"
+        },
+        {   
+            "ticker": "JASMY", 
+            "name": "JasmyCoin"
+        },
+        {   
+            "ticker": "JUVFT", 
+            "name": "Juventus"
+        },
+        {   
+            "ticker": "KEEP", 
+            "name": "Keep Network"
+        },
+        {   
+            "ticker": "KNC", 
+            "name": "Kyber Network"
+        },
+        {   
+            "ticker": "KP3R", 
+            "name": "Keep3rV1"
+        },
+        {   
+            "ticker": "KSM", 
+            "name": "Kusama"
+        },
+        {   
+            "ticker": "LDO", 
+            "name": "Lido DAO Token"
+        },
+        {   
+            "ticker": "LINK", 
+            "name": "Chainlink"
+        },
+        {   
+            "ticker": "LOOKS", 
+            "name": "LooksRare"
+        },
+        {   
+            "ticker": "LPT", 
+            "name": "Livepeer"
+        },
+        {   
+            "ticker": "LQTY", 
+            "name": "Liquity"
+        },
+        {   
+            "ticker": "LRC", 
+            "name": "Loopring"
+        },
+        {   
+            "ticker": "LTC", 
+            "name": "Litecoin"
+        },
+        {   
+            "ticker": "MANA", 
+            "name": "MANA (Decentraland)"
+        },
+        {   
+            "ticker": "MATIC", 
+            "name": "Polygon"
+        },
+        {   
+            "ticker": "MBCCSH01", 
+            "name": "Consorcio H01"
+        },
+        {   
+            "ticker": "MBCCSH02", 
+            "name": "Consorcio H02"
+        },
+        {   
+            "ticker": "MBCCSH03", 
+            "name": "Consorcio H03"
+        },
+        {   
+            "ticker": "MBCONS01", 
+            "name": "Cota de Consórcio 01"
+        },
+        {   
+            "ticker": "MBCONS02", 
+            "name": "Cota de Consórcio 02"
+        },
+        {   
+            "ticker": "MBFP01", 
+            "name": "None"
+        },
+        {   
+            "ticker": "MBFP02", 
+            "name": "None"
+        },
+        {   
+            "ticker": "MBFP03", 
+            "name": "Fluxo de Pagamento 03"
+        },
+        {   
+            "ticker": "MBFP04", 
+            "name": "Fluxo de pagamento 04"
+        },
+        {   
+            "ticker": "MBFP05", 
+            "name": "None"
+        },
+        {   
+            "ticker": "MBFP06", 
+            "name": "Fluxos de Pagamento 06"
+        },
+        {   
+            "ticker": "MBFP07", 
+            "name": "Fluxos de Pagamento 07"
+        },
+        {   
+            "ticker": "MBFP08", 
+            "name": "Fluxos de Pagamento 08"
+        },
+        {   
+            "ticker": "MBFP09", 
+            "name": "Fluxos de Pagamento 09"
+        },
+        {   
+            "ticker": "MBFP10", 
+            "name": "Fluxos de Pagamento 10"
+        },
+        {   
+            "ticker": "MBFP11", 
+            "name": "Fluxos de Pagamento 11"
+        },
+        {   
+            "ticker": "MBPRK01", 
+            "name": "Precatório MB SP01"
+        },
+        {   
+            "ticker": "MBPRK02", 
+            "name": "Precatório MB SP02"
+        },
+        {   
+            "ticker": "MBPRK03", 
+            "name": "Precatório MB BR03"
+        },
+        {   
+            "ticker": "MBPRK04", 
+            "name": "Precatório MB RJ04"
+        },
+        {   
+            "ticker": "MBPRK05", 
+            "name": "Fluxo de Pagamentos 5"
+        },
+        {   
+            "ticker": "MBPRK06", 
+            "name": "Precatorio MB BR06"
+        },
+        {   
+            "ticker": "MBPRK07", 
+            "name": "Precatorio MB SP07"
+        },
+        {   
+            "ticker": "MBSANTOS01", 
+            "name": "Token da Vila"
+        },
+        {   
+            "ticker": "MBVASCO01", 
+            "name": "Vasco Token"
+        },
+        {   
+            "ticker": "MC", 
+            "name": "Merit Circle"
+        },
+        {   
+            "ticker": "MCO2", 
+            "name": "Moss Carbon Credit"
+        },
+        {   
+            "ticker": "MENGOFT", 
+            "name": "Flamengo"
+        },
+        {   
+            "ticker": "METIS", 
+            "name": "MetisDAO"
+        },
+        {   
+            "ticker": "MINA", 
+            "name": "Mina"
+        },
+        {   
+            "ticker": "MIR", 
+            "name": "Mirror Protocol"
+        },
+        {   
+            "ticker": "MKR", 
+            "name": "Maker"
+        },
+        {   
+            "ticker": "MPL", 
+            "name": "Maple"
+        },
+        {   
+            "ticker": "MVI", 
+            "name": "Metaverse Index"
+        },
+        {
+            "ticker": "NAVIFT",
+            "name": "Natus Vincere"
+        },
+        {   
+            "ticker": "NFTI", 
+            "name": "NFT Index"
+        },
+        {   
+            "ticker": "NFTOKN01", 
+            "name": "Cesta de NFTs"
+        },
+        {   
+            "ticker": "OCEAN", 
+            "name": "Ocean Protocol"
+        },
+        {   
+            "ticker": "OGFT", 
+            "name": "OG eSports"
+        },
+        {   
+            "ticker": "OGN", 
+            "name": "Origin Protocol"
+        },
+        {   
+            "ticker": "OMG", 
+            "name": "Omg Network"
+        },
+        {   
+            "ticker": "OP", 
+            "name": "Optimism"
+        },
+        {   
+            "ticker": "OPUL", 
+            "name": "Opulous"
+        },
+        {   
+            "ticker": "OXT", 
+            "name": "Orchid"
+        },
+        {   
+            "ticker": "PAXG", 
+            "name": "PAX Gold"
+        },
+        {   
+            "ticker": "PERP", 
+            "name": "Perpetual Protocol"
+        },
+        {   
+            "ticker": "PFLFT", 
+            "name": "Professional Fighters League"
+        },
+        {   
+            "ticker": "PLA", 
+            "name": "PlayDapp"
+        },
+        {   
+            "ticker": "POLS", 
+            "name": "Polkastarter"
+        },
+        {   
+            "ticker": "POLY", 
+            "name": "Polymath"
+        },
+        {   
+            "ticker": "PORFT", 
+            "name": "Portugal National Team FT"
+        },
+        {   
+            "ticker": "POWR", 
+            "name": "Power Ledger"
+        },
+        {   
+            "ticker": "PSGFT", 
+            "name": "Paris Saint-Germain"
+        },
+        {   
+            "ticker": "QNT", 
+            "name": "Quant"
+        },
+        {   
+            "ticker": "RACA", 
+            "name": "Radio Caca"
+        },
+        {   
+            "ticker": "RAD", 
+            "name": "Radicle"
+        },
+        {   
+            "ticker": "RARE", 
+            "name": "SuperRare"
+        },
+        {   
+            "ticker": "RARI", 
+            "name": "Rarible"
+        },
+        {   
+            "ticker": "REN", 
+            "name": "Ren"
+        },
+        {   
+            "ticker": "REQ", 
+            "name": "Request"
+        },
+        {   
+            "ticker": "RLY", 
+            "name": "Rally"
+        },
+        {   
+            "ticker": "RNDR", 
+            "name": "Render Token"
+        },
+        {   
+            "ticker": "ROSE", 
+            "name": "Oasis Network"
+        },
+        {   
+            "ticker": "SACI", 
+            "name": "Sport Club Internacional"
+        },
+        {   
+            "ticker": "SAND", 
+            "name": "The Sandbox"
+        },
+        {   
+            "ticker": "SAUBERFT", 
+            "name": "Alfa Romeo Racing ORLEN"
+        },
+        {   
+            "ticker": "SCCPFT", 
+            "name": "Corinthians"
+        },
+        {   
+            "ticker": "SDAO", 
+            "name": "SingularityDAO"
+        },
+        {   
+            "ticker": "SHIB", 
+            "name": "Shiba Inu"
+        },
+        {   
+            "ticker": "SKL", 
+            "name": "SKALE Network"
+        },
+        {   
+            "ticker": "SLP", 
+            "name": "Smooth Love Potion"
+        },
+        {   
+            "ticker": "SNX", 
+            "name": "Synthetix"
+        },
+        {   
+            "ticker": "SOL", 
+            "name": "Solana"
+        },
+        {   
+            "ticker": "SPELL", 
+            "name": "Spell Token"
+        },
+        {   
+            "ticker": "SPFCFT", 
+            "name": "SPFC"
+        },
+        {   
+            "ticker": "SRM", 
+            "name": "Serum"
+        },
+        {   
+            "ticker": "STG", 
+            "name": "Stargate FInance"
+        },
+        {   
+            "ticker": "STORJ", 
+            "name": "Storj"
+        },
+        {   
+            "ticker": "STVFT", 
+            "name": "Sint-Truidense Voetbalvereniging"
+        },
+        {   
+            "ticker": "STX", 
+            "name": "Stacks"
+        },
+        {   
+            "ticker": "SUPER", 
+            "name": "SuperFarm"
+        },
+        {   
+            "ticker": "SUSHI", 
+            "name": "SushiSwap"
+        },
+        {   
+            "ticker": "SYN", 
+            "name": "Synapse"
+        },
+        {   
+            "ticker": "THFT", 
+            "name": "Team Heretics"
+        },
+        {   
+            "ticker": "TLM", 
+            "name": "Alien Worlds"
+        },
+        {   
+            "ticker": "TRB", 
+            "name": "Tellor"
+        },
+        {   
+            "ticker": "TRU", 
+            "name": "TrueFi"
+        },
+        {   
+            "ticker": "UFCFT", 
+            "name": "UFC"
+        },
+        {   
+            "ticker": "UMA", 
+            "name": "Uma"
+        },
+        {   
+            "ticker": "UNI", 
+            "name": "Uniswap"
+        },
+        {   
+            "ticker": "USDC", 
+            "name": "USD Coin"
+        },
+        {   
+            "ticker": "USDP", 
+            "name": "Pax Dollar"
+        },
+        {   
+            "ticker": "VERDAO", 
+            "name": "Sociedade Esportiva Palmeiras"
+        },
+        {   
+            "ticker": "VSPRK01", 
+            "name": "Precatorio VS SP01"
+        },
+        {   
+            "ticker": "WBTC", 
+            "name": "Wrapped Bitcoin"
+        },
+        {   
+            "ticker": "WBX", 
+            "name": "WiBX"
+        },
+        {   
+            "ticker": "WLUNA", 
+            "name": "Wrapped LUNA Token"
+        },
+        {   
+            "ticker": "XLM", 
+            "name": "Stellar"
+        },
+        {   
+            "ticker": "XRP", 
+            "name": "XRP"
+        },
+        {   
+            "ticker": "XTZ", 
+            "name": "Tezos"
+        },
+        {   
+            "ticker": "YBOFT", 
+            "name": "BSC Young Boys"
+        },
+        {   
+            "ticker": "YFI", 
+            "name": "yearn.finance"
+        },
+        {   
+            "ticker": "YGG", 
+            "name": "Yield Guild Games"
+        },
+        {   
+            "ticker": "ZRX", 
+            "name": "0x"
+        },
+        {
+            "ticker": "FTBRL",
+            "name": "None"
+        }
+    ]
+}
