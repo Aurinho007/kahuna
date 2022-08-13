@@ -1,14 +1,13 @@
 import * as React from "react";
 import { useState } from "react";
-import { Accordion, Form } from "react-bootstrap";
+import CardBody from "../CardBody";
+import { Accordion } from "react-bootstrap";
+import Investiment from "../../types/Investiment";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
-import CoinInterface from "../../types/CoinInterface";
-import Investment from "../../types/Investment";
 import { dateToLiteralDate } from "../../helpers/DateHelper";
 import './index.css'
-import CardBody from "../CardBody";
 
-function Investiment({ ticker, name, purchaseData }: Investment) {
+function InvestimentItem({ ticker, name, purchaseDate }: Investiment) {
   const [favorite, setFavorite] = useState<boolean>(false);
 
   return (
@@ -32,7 +31,7 @@ function Investiment({ ticker, name, purchaseData }: Investment) {
         </div>
 
         <div className="coin-date">
-          <p>{dateToLiteralDate(new Date())}</p>
+          <p>{dateToLiteralDate(new Date(purchaseDate))}</p>
         </div>
 
       </Accordion.Header>
@@ -43,4 +42,4 @@ function Investiment({ ticker, name, purchaseData }: Investment) {
   );
 }
 
-export default Investiment;
+export default InvestimentItem;

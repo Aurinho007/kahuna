@@ -1,10 +1,10 @@
-interface Investment {
+interface Investiment {
     id: number
     ticker: string
     name: string
     purchasePrice: number
     amount: number
-    purchaseData: Date
+    purchaseDate: Date
 }
 
-export default Investment
+export default Investiment
