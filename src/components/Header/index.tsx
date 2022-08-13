@@ -2,7 +2,7 @@ import * as React from 'react';
 import './index.css'
 import { FaRegBell, FaBell } from 'react-icons/fa'
 import { useState } from 'react';
-import CoinApi from '../../services/CoinApi';
+import KButton from '../KButton';
 
 function Header() {
     const [activeBell, setActiveBell] = useState<boolean>(false);
@@ -16,7 +16,7 @@ function Header() {
                 </div>
                 <div id="header-container-btn">
                     <button className="header-btn" id="btn-add-invest">Gerenciar</button>
-                    <button className="header-btn" id="btn-how-use">Saiba Mais</button>
+                    <KButton id="btn-how-use" text="Saiba mais"/>
                     {
                         activeBell ? 
                         <FaBell 

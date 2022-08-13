@@ -15,3 +15,7 @@ export function dateToLiteralDate(date: Date): string {
     formattedDate.pop();
     return formattedDate.join(' ');
 }
+
+export function formatPrice(price: string): number {
+    return parseFloat(price.replaceAll(',', '').replaceAll('.', ''));
+}

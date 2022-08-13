@@ -5,12 +5,13 @@
 
 :root{
     --black: #000000;
-    --blue: #0F1A20;
+    --snd-black: #222630;
+    --blue: #181b23;
     --yellow: #FFD500;
     --gray: #E5E5E5;
     --white: #FFFFFF;
     --whiteLabel: #acabab;
-    --grafite: #27292b;
+    --grafite: #17191b;
 
     --logo-font:'Raleway', sans-serif;
     --title: 'Montserrat', sans-serif;

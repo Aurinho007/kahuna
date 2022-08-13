@@ -1,0 +1,8 @@
+.btn {
+    width: max-content; 
+    height: 2rem;
+    border-radius: 5px;
+    font-family: var(--text);
+    font-size: 0.85rem;
+    padding: 0 1rem;
+}

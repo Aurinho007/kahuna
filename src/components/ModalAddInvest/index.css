@@ -1,0 +1,87 @@
+.modal-content {
+    width: 400px;
+    background-color: var(--snd-black);
+    color: var(--gray);
+}
+
+.toaster {
+    font-family: var(--text);
+    font-size: .9rem
+}
+
+.modal-header {
+    border-bottom-color: var(--black);
+}
+
+.modal-footer {
+    border-top-color: var(--black); 
+}
+
+.modal-dialog-centered {
+    justify-content: center;
+}
+
+.modal-title {
+    font-family: var(--title);
+    font-size: 1.1rem;
+}
+
+.label-input, .modal-input, .type-label {
+    font-family: var(--text);
+    font-size: .9rem;
+    color: var(--gray)
+}
+
+.modal-input, .modal-input:focus {
+    background-color: var(--blue);
+    color: var(--gray);
+    border-color: #555;
+    box-shadow: none;
+}
+
+.type-label {
+    background-color: var(--snd-black);
+    color: var(--gray);
+    border-color: #555;
+}
+
+.btn-modal-save, .btn-modal-save:hover {
+    background-color: var(--yellow);
+    border-color: var(--yellow);
+    color: var(--black) !important;
+}
+
+.btn-modal-close {
+    background-color: var(--snd-black);
+    color: var(--gray);
+    border-color: var(--yellow);
+}
+
+.btn-close {
+    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+}
+
+.btn-modal-save:hover {
+    background-color: #ecb620;
+}
+
+.btn-modal-close:hover {
+    border-color: #ecb620;
+    background-color: var(--snd-black);
+}
+
+.btn-primary{
+    --bs-btn-focus-shadow-rgb: var(--yellow);
+}
+
+.btn-modal-close {
+    --bs-btn-active-border-color: var(--yellow);
+    --bs-btn-active-bg: var(--snd-black);
+    --bs-btn-hover-bg: var(--snd-black);
+}
+
+.btn-modal-save, .btn-modal-save:focus, .btn-modal-save:not(:focus) {
+    --bs-btn-active-border-color: var(--yellow);
+    --bs-btn-active-bg: var(--yellow);
+    --bs-btn-hover-bg: var(--yellow);
+}
