@@ -20,7 +20,7 @@ function CardBody() {
                 </div>
                 <div className="user-purchase-info">
                     <span className="user-purchase-label">
-                        Valor de {'BTC'} da tada da compra
+                        Valor de {'BTC'} na data da compra
                     </span>
                     <span className="user-purchase-value">
                         {'R$ 26.587,20'}
@@ -28,7 +28,7 @@ function CardBody() {
                 </div>
                 <div className="user-purchase-info">
                     <span className="user-purchase-label">
-                        Quantodade de {'BTC'} comprados
+                        Quantidade de {'BTC'} comprados
                     </span>
                     <span className="user-purchase-value">
                         {'0,0058'}
@@ -68,15 +68,34 @@ function CardBody() {
                     <span className="user-purchase-label">
                         Valorização
                     </span>
-                    <span className="user-purchase-value">
-                        + 23%
+                    <span className="user-purchase-value colored-gain">
+                        {'+ 23%'}
+                    </span>
+                </div>
+            </div>
+            <div className="user-purchase">
+                <span className="user-purchase-title">
+                    Rendimento
+                </span>
+
+                <div className="user-purchase-info">
+                    <span className="user-purchase-label">
+                        Total
+                    </span>
+                    <span className="user-purchase-value important-value">
+                        {'R$ 765,00'}
+                    </span>
+                </div>
+                <div className="user-purchase-info">
+                    <span className="user-gains">
+                        Até o momento você teve R$ {'258,00'} de {'LUCRO'}
                     </span>
                 </div>
             </div>
 
             
         </section>
-     );
+    );
 }
 
 export default CardBody;

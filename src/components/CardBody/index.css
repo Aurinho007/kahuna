@@ -1,13 +1,18 @@
 .container-card-body {
     color: var(--white);
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
 }
 
 .user-purchase {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 33%;
+    align-items: center;
+    min-width: 155px
+
 }
 
 .user-purchase-title {
@@ -39,3 +44,25 @@
 .important-value {
     color: var(--yellow)
 }
+
+.user-gains{
+    color: var(--whiteLabel);
+    font-family: var(--text);
+    font-size: .9rem;
+    max-width: 190px;
+}
+
+.colored-gain {
+    color: #00ff00
+}
+
+.colored-lost {
+    color: #ff0000;
+}
+
+/* @media(max-width: 800px){
+    .container-card-body {
+        flex-wrap: wrap;
+    }
+} */
+

@@ -55,6 +55,12 @@
     text-align: center;
 }
 
+@media(max-width: 615px){
+    .coin-date{
+        display: none;
+    }
+}
+
 .coin-date p {
     margin-left: -15%;
 }
