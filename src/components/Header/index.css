@@ -21,12 +21,18 @@
     width: 45px;
 }
 
-#texto-logo {
+#text-logo {
     color: var(--gray);
     font-size: 1.7rem;
     font-family: var(--title);
     font-weight: 500;
     margin-left: -8px;
+}
+
+@media(max-width: 500px){
+    #text-logo{
+        display: none;
+    }
 }
 
 #header-container-btn {
@@ -68,8 +74,8 @@
 }
 
 .btn-bell {
-    font-size: 3rem;
+    font-size: 1.3rem;
+    margin-left: 1rem;
     color: var(--gray);
-    padding: 0 6%;
     cursor: pointer;
 }
