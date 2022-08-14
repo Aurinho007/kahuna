@@ -19,3 +19,17 @@ export function dateToLiteralDate(date: Date): string {
 export function formatPrice(price: string): number {
     return parseFloat(price.replaceAll(',', '').replaceAll('.', ''));
 }
+
+export function formatBRLCurrency(number: number | undefined): string {
+    if (number) {
+        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number);
+    }
+    return '';
+}
+
+export function formatUSDCurrency(number: number | undefined): string {
+    if (number) {
+        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(number);
+    }
+    return '';
+}
