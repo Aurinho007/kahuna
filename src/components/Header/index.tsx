@@ -3,21 +3,35 @@ import './index.css'
 import { FaRegBell, FaBell } from 'react-icons/fa'
 import { useState } from 'react';
 import KButton from '../KButton';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
     const [activeBell, setActiveBell] = useState<boolean>(false);
-
+    const navigate = useNavigate();
 
     return (
         <>
             <header id="header">
-                <div id="header-container-img-logo">
-                    <img id="img-logo" src="/images/logo.png" alt="Imagem do site Kahuna"/>
+                <div id="header-container-img-logo" onClick={() => {navigate('/')}}>
+                    <img 
+                        id="img-logo" 
+                        src="/images/logo.png" 
+                        alt="Imagem do site Kahuna"
+                    />
                     <p id="text-logo">ahuna</p>
                 </div>
                 <div id="header-container-btn">
-                    <button className="header-btn" id="btn-add-invest">Gerenciar</button>
-                    <KButton id="btn-how-use" text="Saiba mais"/>
+                    <button 
+                        className="header-btn" 
+                        id="btn-add-invest" 
+                        onClick={() => {
+                            navigate('/manager');
+                        }}
+                        >
+                        Gerenciar
+                    </button>
+
+                    <KButton id="btn-how-use" text="Saiba Mais"/>
                     {
                         activeBell ? 
                         <FaBell 

@@ -12,6 +12,18 @@ interface Ticker {
     date: string
 }
 
+interface Summary {
+    date: string
+    opening: number
+    closing: number
+    lowest: number
+    highest: number
+    volume: string
+    quantity: string
+    amount: number
+    avg_price: number
+}
+
 class CoinApi {
 
     static getAllCoins(): CoinInterface[] {
@@ -27,6 +39,23 @@ class CoinApi {
         .then((tickerData: Ticker) => {
             let formattedPrice = parseFloat(tickerData.buy).toFixed(2);
             return parseFloat(formattedPrice);
+        });
+    }
+
+    static async getCoinGrowth(ticker: string): Promise<number> {
+        let date = new Date();
+        date.setDate(date.getDate() - 1);
+        const yesterday = date.toLocaleDateString().split('/').reverse();
+
+        return await fetch(`
+            https://www.mercadobitcoin.net/api/${ticker}/day-summary/${yesterday[0]}/${yesterday[1]}/${yesterday[2]}/
+        `)
+        .then(res => res.json())
+        .then(async (yesterdayData: Summary) => {
+            const currentPrice = await this.getCoinPrice(ticker);
+            let growth = ((currentPrice - yesterdayData.avg_price) / yesterdayData.avg_price) * 100;
+            
+            return growth;
         });
     }
 }

@@ -45,7 +45,7 @@ function CardBody() {
             </div>
             <div className="user-purchase">
                 <span className="user-purchase-title">
-                    Atualmtente
+                    Atualmente
                 </span>
 
                 <div className="user-purchase-info">

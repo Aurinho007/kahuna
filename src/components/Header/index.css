@@ -15,10 +15,11 @@
     flex-direction: row;
     align-items: center;
     padding-left: 10vw;
+    cursor: pointer;
 }
 
 #img-logo{
-    width: 45px;
+    width: 40px;
 }
 
 #text-logo {

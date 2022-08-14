@@ -12,7 +12,6 @@
     width: 33%;
     align-items: center;
     min-width: 155px
-
 }
 
 .user-purchase-title {
@@ -30,10 +29,9 @@
 
 .user-purchase-label{
     font-family: var(--title);
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding-bottom: 5px;
     color: var(--whiteLabel)
-
 }
 
 .user-purchase-value {

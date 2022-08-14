@@ -1,19 +1,20 @@
 import './assets/App.css'
-import Header from './components/Header'
-import InvestmentList from './components/InvestimentList'
-import UserContext from './contexts/UserContext'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Manager from './pages/Manager';
+import Help from './pages/Help';
 
 function App() {
     
-
-  return (
-    <>
-      <UserContext.Provider value={{}}>
-        <Header/>
-        <InvestmentList/>
-      </UserContext.Provider>
-    </>
-  )
+    return (
+        <Router>
+            <Routes>
+                <Route path='/' element={<Home/>} />
+                <Route path='/manager' element={<Manager/>} />
+                <Route path='/help' element={<Help/>} />
+            </Routes>
+        </Router>
+    )
 }
 
 export default App
