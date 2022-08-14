@@ -4,6 +4,7 @@ import { Accordion } from "react-bootstrap";
 import { BsFilter } from 'react-icons/bs'
 import Controller from '../../controllers/Controller';
 import Investiment from '../../types/Investiment';
+import ImageDefaultInvestment from '../ImageDefaultInvestment';
 import InvestimentItem from '../InvestimentItem';
 import KButton from '../KButton';
 import ModalAddInvest from '../ModalAddInvest';
@@ -24,6 +25,9 @@ function InvestmentList() {
                         onClick={() => setShowModalAddInvest(!showModalAddInvest)}
                     />
                 </div>
+            </div>
+            <div id="image-default-investment">
+                <ImageDefaultInvestment/>
             </div>
 
             <ModalAddInvest 

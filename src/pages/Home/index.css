@@ -3,6 +3,8 @@
     align-items: center;
     justify-content: space-between;
     margin: 0 10vw;
+    max-width: 1000px;
+
 }
 
 .home-container {

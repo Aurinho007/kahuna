@@ -1,4 +1,8 @@
 #container-investment-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 85px;
 }
 
@@ -18,6 +22,18 @@
     height: max-content;
     padding: .5rem 0;
     margin-top: 1.5rem;
+    max-width: 920px;
+
+}
+
+@media(max-width: 880px){
+    .investiments-header {
+        flex-direction: column;
+    }
+    .investiments-header-inputs {
+        align-self: flex-start;
+        margin-top: 10px;
+    }
 }
 
 .investiments-header h1 {
@@ -25,13 +41,17 @@
     font-size: 1.5rem;
     font-family: var(--title);
     width: 100%;
+    min-width: 242px
 }
+
 
 #btn-add-investiment {
     color: var(--black);
     background-color: var(--yellow);
-    border: solid 3px var(--yellow)
+    border: solid 3px var(--yellow);
 }
+
+
 
 #btn-add-investiment:hover {
     background-color: #ecb620;
@@ -59,6 +79,7 @@
     margin-top: 10px;
     width: 60%;
     height: auto;
+    max-width: 920px;
 }
 
 .accordion {

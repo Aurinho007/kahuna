@@ -3,8 +3,9 @@ import './index.css'
 
 function CardBody() {
     return ( 
-        <section className="container-card-body">
+        <section className="container">
 
+        <div className="container-card-body">
             <div className="user-purchase">
                 <span className="user-purchase-title">
                     Sua Compra
@@ -92,7 +93,12 @@ function CardBody() {
                     </span>
                 </div>
             </div>
+        </div>
 
+        <div className='user-actions'>
+            <button className='action'>Editar</button>
+            <button className='action'>Apagar</button>
+        </div>
             
         </section>
     );
