@@ -31,7 +31,13 @@ function Header() {
                         Gerenciar
                     </button>
 
-                    <KButton id="btn-how-use" text="Saiba Mais"/>
+                    <KButton 
+                        id="btn-how-use" 
+                        text="Mercado"
+                        onClick={() => {
+                            navigate('/market');
+                        }}
+                    />
                     {
                         activeBell ? 
                         <FaBell 
