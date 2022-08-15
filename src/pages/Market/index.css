@@ -1,8 +1,29 @@
-.coins-container {
+.coins {
     width: 80%;
     height: max-content;
     margin: 85px 10vw;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+}
+
+.loading-container {
+    margin-top: 85px;
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading {
+    width: 20vh;
+}
+
+.show {
+    display: flex;
+}
+
+.hide {
+    display: none;
 }

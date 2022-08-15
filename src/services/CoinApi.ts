@@ -1,28 +1,8 @@
 import CoinsJSON from '../Coins.json';
 import CoinInterface from '../types/CoinInterface';
-
-interface TickerData {
-    high: string
-    low: string,
-    vol: string,
-    last: string,
-    buy: string,
-    sell: string,
-    open: string,
-    date: string
-}
-
-interface Summary {
-    date: string
-    opening: number
-    closing: number
-    lowest: number
-    highest: number
-    volume: string
-    quantity: string
-    amount: number
-    avg_price: number
-}
+import TickerData from '../types/TickerData';
+import Summary from '../types/Summary';
+import CoinInfo from '../types/CoinInfo';
 
 class CoinApi {
 
@@ -38,73 +18,83 @@ class CoinApi {
         return coin[0].name;
     }
 
-    static async getCoinPrice(ticker: string): Promise<number> {
-        ticker = ticker.toUpperCase();
-
-        return await fetch(`https://www.mercadobitcoin.net/api/${ticker}/ticker/`)
-        .then(res => res.json())
-        .then(data => data.ticker)
-        .then((tickerData: TickerData) => {
-            let formattedPrice = parseFloat(tickerData.last).toFixed(2);
-            return parseFloat(formattedPrice);
-        });
-    }
-
     static async getCoinLastInfo(ticker: string): Promise<TickerData> {
         ticker = ticker.toUpperCase();
 
         return await fetch(`https://www.mercadobitcoin.net/api/${ticker}/ticker/`)
         .then(res => res.json())
         .then(data => data.ticker)
-        .then((tickerData: TickerData) => {
-            return tickerData;
-        });
+        .then((data: TickerData) => data);
     }
 
-    static async getCoinVolume(ticker: string): Promise<number> {
+    static async getCoinLastDaySummary(ticker: string): Promise<Summary> {
+        const yesterday = this.getYesterdayDate();
         ticker = ticker.toUpperCase();
 
-        const coinInfo = await this.getCoinLastInfo(ticker);
-        return parseFloat(coinInfo.last) * parseFloat(coinInfo.vol);
+        return await fetch(`
+            https://www.mercadobitcoin.net/api/${ticker}/day-summary/${yesterday.getFullYear()}/${yesterday.getMonth() + 1}/${yesterday.getDate()}/
+        `)
+        .then(res => res.json())
+        .then((data: Summary) => data);
     }
 
-    static async getHighestPriceCoin(ticker: string): Promise<number> {
-        ticker = ticker.toUpperCase();
+    static getCoinPrice(lastInfo: TickerData): number {
+        let formattedPrice = parseFloat(lastInfo.last).toFixed(2);
 
-        const coinInfo = await this.getCoinLastInfo(ticker);
-        return parseFloat(coinInfo.high);
+        return parseFloat(formattedPrice);
     }
 
-    static async getCoinPriceUSD(ticker: string): Promise<number> {
-        ticker = ticker.toUpperCase();
-        const priceBRL = await this.getCoinPrice(ticker);
+    
+    static getCoinVolume(lastInfo: TickerData): number {
+        return parseFloat(lastInfo.last) * parseFloat(lastInfo.vol);
+    }
+    
+    static getCoinHighestPrice(lastInfo: TickerData): number {
+        return parseFloat(lastInfo.high);
+    }
+    
+    static getYesterdayDate(): Date {
+        let date = new Date();
+        
+        date.setDate(date.getDate() - 1);
 
+        return date;
+    }
+
+    static async getCoinPriceUSD(lastInfo: TickerData): Promise<number> {
         return await fetch(`https://www.mercadobitcoin.net/api/USDC/ticker/`)
         .then(res => res.json())
         .then(data => data.ticker)
-        .then((tickerData: TickerData) => {
-            const priceUSD = parseFloat(tickerData.buy);
+        .then((dolar: TickerData) => {
+            const priceUSD: number = parseFloat(dolar.buy);
 
-            let formattedPrice = (priceBRL / priceUSD).toFixed(2);
-            return parseFloat(formattedPrice);
+            let coinPriceUSD = (parseFloat(lastInfo.last) / priceUSD).toFixed(2);
+            return parseFloat(coinPriceUSD);
         }); 
     }
 
-    static async getCoinGrowth(ticker: string): Promise<number> {
-        let date = new Date();
-        date.setDate(date.getDate() - 1);
-        const yesterday = date.toLocaleDateString().split('/').reverse();
-
-        return await fetch(`
-            https://www.mercadobitcoin.net/api/${ticker}/day-summary/${yesterday[0]}/${yesterday[1]}/${yesterday[2]}/
-        `)
-        .then(res => res.json())
-        .then(async (yesterdayData: Summary) => {
-            const currentPrice = await this.getCoinPrice(ticker);
-            let growth = ((currentPrice - yesterdayData.avg_price) / yesterdayData.avg_price) * 100;
+    static async getCoinGrowth(lastInfo: TickerData, lastDaySum: Summary): Promise<number> {
+        const currentPrice: number = parseFloat(lastInfo.last);
+        let growth = ((currentPrice - lastDaySum.avg_price) / lastDaySum.avg_price) * 100;
             
-            return parseFloat(growth.toFixed(2));
-        });
+        return parseFloat(growth.toFixed(2));
+    }
+
+    static async getCoinInfo(ticker: string) {
+        const coinLastInfo = await this.getCoinLastInfo(ticker);
+        const coinLastDaySummary = await this.getCoinLastDaySummary(ticker);
+
+        const coinInfo: CoinInfo = {
+            ticker: ticker,
+            name: this.getCoinNameByTicker(ticker),
+            currentPriceBRL: parseFloat(coinLastInfo.last),
+            currentPriceUSD: await this.getCoinPriceUSD(coinLastInfo),
+            growth: await this.getCoinGrowth(coinLastInfo, coinLastDaySummary),
+            volume: this.getCoinVolume(coinLastInfo),
+            highestPrice: this.getCoinHighestPrice(coinLastInfo)
+        }
+
+        return coinInfo;
     }
 }
 

@@ -11,7 +11,7 @@ interface CardCoinProps {
 
 function CardCoin(props: CardCoinProps) {
     const [ticker] = useState<string>(props.ticker);
-    const [name] = useState<string>(CoinApi.getCoinNameByTicker(ticker));
+    const [name, setName] = useState<string>();
     const [currentPriceBRL, setCurrentPriceBRL] = useState<number>();
     const [currentPriceUSD, setCurrentPriceUSD] = useState<number>();
     const [growth, setGrowth] = useState<number>();
@@ -19,17 +19,14 @@ function CardCoin(props: CardCoinProps) {
     const [highest, setHighest] = useState<number>();
 
     async function loadPrices() {
-        const priceBRL = await CoinApi.getCoinPrice(ticker);
-        const priceUSD = await CoinApi.getCoinPriceUSD(ticker);
-        const growthValue = await CoinApi.getCoinGrowth(ticker);
-        const coinVolume = await CoinApi.getCoinVolume(ticker);
-        const highestValue = await CoinApi.getHighestPriceCoin(ticker);
+        const coinInfo = await CoinApi.getCoinInfo(ticker);
 
-        setCurrentPriceBRL(priceBRL);
-        setCurrentPriceUSD(priceUSD);
-        setGrowth(growthValue);
-        setVolume(coinVolume);
-        setHighest(highestValue);
+        setName(coinInfo.name);
+        setCurrentPriceBRL(coinInfo.currentPriceBRL);
+        setCurrentPriceUSD(coinInfo.currentPriceUSD);
+        setGrowth(coinInfo.growth);
+        setVolume(coinInfo.volume);
+        setHighest(coinInfo.highestPrice);
     }
 
     useEffect(() => {
