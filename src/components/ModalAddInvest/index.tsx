@@ -62,6 +62,33 @@ function ModalAddInvest(props: ModalAddInvest) {
         setAmount('');
     }
 
+    function maskPrice(number: string, setter: React.Dispatch<React.SetStateAction<string>>): void{
+
+        const onlyDigits = number
+        .split("")
+        .filter(s => /\d/.test(s))
+        .join("")
+        .padStart(3, "0")
+        const digitsFloat = onlyDigits.slice(0, -2) + "." + onlyDigits.slice(-2)
+        setter(maskCurrency(digitsFloat))
+
+    }
+
+    function maskCurrency(valor: string, locale = 'pt-BR', currency = 'BRL') {
+
+        if(!valor)
+            return ''
+
+        let formatValue = new Intl.NumberFormat(locale, {
+          style: 'currency',
+          currency
+        }).format(parseFloat(valor))
+
+        return formatValue.substring(3, formatValue.length)
+      }
+
+      
+
     return <>
         <Toaster
             toastOptions={{className: 'toaster'}}
@@ -123,7 +150,7 @@ function ModalAddInvest(props: ModalAddInvest) {
                                     className="modal-input"
                                     autoComplete='off'
                                     value={purchasePrice}
-                                    onChange={(e) => setPurchasePrice(e.target.value)}
+                                    onInput={(e) => maskPrice(e.currentTarget.value, setPurchasePrice)}
                                 />
                             </InputGroup>
                         </Form.Group>
@@ -139,7 +166,7 @@ function ModalAddInvest(props: ModalAddInvest) {
                                     className="modal-input"
                                     autoComplete='off'
                                     value={amount}
-                                    onChange={(e) => setAmount(e.target.value)}
+                                    onInput={(e) => maskPrice(e.currentTarget.value, setAmount)}
                                 />
                             </InputGroup>
                         </Form.Group>
