@@ -1,3 +1,8 @@
+.accordion-collapse.collapse.show {
+    display: flex;
+    justify-content: center;
+}
+
 .container-card-body {
     color: var(--white);
     display: flex;
@@ -19,6 +24,7 @@
     font-size: 1.3rem;
     padding-bottom: 18px;
     font-weight: bold;
+    text-decoration: underline;
 }
 
 .user-purchase-info {
@@ -81,4 +87,14 @@
 .action:hover{
     opacity: 1;
     border-bottom: solid 1px var(--white);
+}
+
+@media(max-width:880px){
+    .user-purchase {
+        margin-bottom: 18px;
+    }
+
+    .user-purchase-title {
+        text-decoration: underline;
+    }
 }

@@ -1,5 +1,5 @@
 export function dateToTextBR(date: Date): string {
-    return new Intl.DateTimeFormat('pt-BR').format(date);
+    return new Intl.DateTimeFormat('pt-BR').format(new Date(date));
 }
 
 export function dateToTextFR(date: Date): string {
@@ -17,7 +17,7 @@ export function dateToLiteralDate(date: Date): string {
 }
 
 export function formatPrice(price: string): number {
-    return parseFloat(price.replaceAll(',', '').replaceAll('.', ''));
+    return parseFloat(price.replaceAll('.', '').replace(',', '.'));
 }
 
 export function formatBRLCurrency(number: number | undefined): string {

@@ -7,11 +7,11 @@ import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { dateToLiteralDate } from "../../helpers/DateHelper";
 import './index.css'
 
-function InvestimentItem({ ticker, name, purchaseDate }: Investiment) {
+function InvestimentItem(props: Investiment) {
   const [favorite, setFavorite] = useState<boolean>(false);
 
-  return (
-    <Accordion.Item eventKey={ticker}>
+  return (  
+    <Accordion.Item eventKey={props.ticker}>
       <Accordion.Header className="closed-card">
         {
         favorite ? 
@@ -26,17 +26,17 @@ function InvestimentItem({ ticker, name, purchaseDate }: Investiment) {
           />
         }
         <div className="coin-description">
-          <p className="coin-ticker">{ticker}</p>
-          <p className="coin-name">{name}</p>
+          <p className="coin-ticker">{props.ticker}</p>
+          <p className="coin-name">{props.name}</p>
         </div>
 
         <div className="coin-date">
-          <p>{dateToLiteralDate(new Date(purchaseDate))}</p>
+          <p>{dateToLiteralDate(new Date(props.purchaseDate))}</p>
         </div>
 
       </Accordion.Header>
       <Accordion.Body className="openned-card">
-        <CardBody/>
+        <CardBody {...props}/>
       </Accordion.Body>
     </Accordion.Item>
   );

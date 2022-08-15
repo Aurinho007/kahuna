@@ -30,7 +30,6 @@ function ModalAddInvest(props: ModalAddInvest) {
 
     function handleSubmit(): void {
         if(!validateFields()) {
-            toast.error('Preencha todos os campos!');
             return;
         }
 
@@ -40,8 +39,10 @@ function ModalAddInvest(props: ModalAddInvest) {
             name: coin.split(' - ')[1],
             purchasePrice: formatPrice(purchasePrice),
             amount: formatPrice(amount),
-            purchaseDate: new Date(purchaseDate.replaceAll('-', ','))
+            purchaseDate: new Date(purchaseDate.replaceAll('-', ',')),
+            favorite: false
         }
+        
         Controller.saveInvestiment(investiment);
         clearInputs();
         handleClose();
@@ -50,8 +51,15 @@ function ModalAddInvest(props: ModalAddInvest) {
 
     function validateFields(): boolean {
         if(!(coin && purchaseDate && purchasePrice && amount)) {
+            toast.error('Preencha todos os campos!');
             return false;
         }
+
+        if(CoinApi.getAllCoins().filter(c => (c.ticker +' - '+ c.name) === coin).length === 0){
+            toast.error('A moeda selecionada não está disponível');
+            return false
+        }
+
         return true;
     }
 
@@ -174,7 +182,6 @@ function ModalAddInvest(props: ModalAddInvest) {
                 </Row>
             </Form>
             </Container>
-                
             </Modal.Body>
             <Modal.Footer>
                 <Button className="btn-modal-close" onClick={handleClose}>

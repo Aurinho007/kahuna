@@ -1,7 +1,23 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
+import { dateToTextBR, formatBRLCurrency } from '../../helpers/DateHelper';
+import CoinApi from '../../services/CoinApi';
+import CoinInfo from '../../types/CoinInfo';
+import Investiment from '../../types/Investiment';
 import './index.css'
 
-function CardBody() {
+function CardBody(props: Investiment) {
+    const [api, setApi] = useState<CoinInfo>()
+
+    async function loadApi() {
+        const data = await CoinApi.getCoinInfo(props.ticker);
+        setApi(data);
+    }
+
+    useEffect(() => {
+        loadApi()
+    }, [])
+
     return ( 
         <section className="container">
 
@@ -16,23 +32,23 @@ function CardBody() {
                         Data da compra
                     </span>
                     <span className="user-purchase-value">
-                        {'08/85/2022'}
+                        { dateToTextBR(props.purchaseDate) }
                     </span>
                 </div>
                 <div className="user-purchase-info">
                     <span className="user-purchase-label">
-                        Valor de {'BTC'} na data da compra
+                        Valor de { props.ticker } na data da compra
                     </span>
                     <span className="user-purchase-value">
-                        {'R$ 26.587,20'}
+                        { formatBRLCurrency(props.purchasePrice) }
                     </span>
                 </div>
                 <div className="user-purchase-info">
                     <span className="user-purchase-label">
-                        Quantidade de {'BTC'} comprados
+                        Quantidade de { props.ticker } comprados
                     </span>
                     <span className="user-purchase-value">
-                        {'0,0058'}
+                        { (props.amount / props.purchasePrice).toFixed(2)}
                     </span>
                 </div>
                 <div className="user-purchase-info">
@@ -40,7 +56,7 @@ function CardBody() {
                         Valor da compra
                     </span>
                     <span className="user-purchase-value important-value">
-                        {'R$ 456,00'}
+                        { formatBRLCurrency(props.amount) }
                     </span>
                 </div>
             </div>
@@ -59,18 +75,18 @@ function CardBody() {
                 </div>
                 <div className="user-purchase-info">
                     <span className="user-purchase-label">
-                        Valor atual de {'BTC'}
+                        Valor atual de { props.ticker }
                     </span>
                     <span className="user-purchase-value">
-                        {'R$ 56.587,20'}
+                        { api?.currentPriceBRL.toFixed(2) }
                     </span>
                 </div>
                 <div className="user-purchase-info">
                     <span className="user-purchase-label">
                         Valorização
                     </span>
-                    <span className="user-purchase-value colored-gain">
-                        {'+ 23%'}
+                    <span className={`user-purchase-value ${api?.growth && api?.growth > 0 ? 'colored-gain' : 'colored-lost'}`}>
+                        {api?.growth && api?.growth > 0 ? '+' : '-' } {api?.growth.toFixed(2)}%
                     </span>
                 </div>
             </div>
@@ -84,7 +100,7 @@ function CardBody() {
                         Total
                     </span>
                     <span className="user-purchase-value important-value">
-                        {'R$ 765,00'}
+                        { api?.currentPriceBRL ? (props.purchasePrice * api?.currentPriceBRL).toFixed(2) : ''} //AQUI
                     </span>
                 </div>
                 <div className="user-purchase-info">

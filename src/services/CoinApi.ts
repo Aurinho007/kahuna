@@ -80,7 +80,7 @@ class CoinApi {
         return parseFloat(growth.toFixed(2));
     }
 
-    static async getCoinInfo(ticker: string) {
+    static async getCoinInfo(ticker: string): Promise<CoinInfo> {
         const coinLastInfo = await this.getCoinLastInfo(ticker);
         const coinLastDaySummary = await this.getCoinLastDaySummary(ticker);
 

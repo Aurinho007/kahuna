@@ -5,6 +5,8 @@ interface Investiment {
     purchasePrice: number
     amount: number
     purchaseDate: Date
+    favorite: boolean
+
 }
 
 export default Investiment
