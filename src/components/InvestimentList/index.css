@@ -17,23 +17,19 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
     width: 60%;
     height: max-content;
     padding: .5rem 0;
     margin-top: 1.5rem;
     max-width: 920px;
+    min-width: 245px;
 
 }
 
-@media(max-width: 880px){
-    .investiments-header {
-        flex-direction: column;
-    }
-    .investiments-header-inputs {
-        align-self: flex-start;
-        margin-top: 10px;
-    }
+.investiments-header-inputs {
+    display: flex;
+    min-width: 242px
+    
 }
 
 .investiments-header h1 {
@@ -51,16 +47,9 @@
     border: solid 3px var(--yellow);
 }
 
-
-
 #btn-add-investiment:hover {
     background-color: #ecb620;
     border: solid 3px #ecb620;
-}
-
-.investiments-header-inputs {
-    display: flex;
-    align-items: center;
 }
 
 #btn-filter {
@@ -88,5 +77,18 @@
     --bs-accordion-active-color:  var(--grafite);
     --bs-accordion-active-bg:  var(--grafite);
     --bs-accordion-border-color: var(--grafite);
+}
+
+@media(max-width: 880px){
+
+    .investiments-header {
+        flex-direction: column;
+    }
+
+    .investiments-header-inputs {
+        align-self: flex-start;
+        margin-top: 10px;
+    }
+
 }
 
