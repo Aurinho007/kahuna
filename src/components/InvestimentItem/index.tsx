@@ -23,11 +23,10 @@ function InvestimentItem(props: Investiment) {
 		}
 
 		Controller.updateInvestiment(inv);
-		console.log(inv)
 	}, [favorite])
 
 	return (
-		<Accordion.Item eventKey={props.ticker}>
+		<Accordion.Item eventKey={props.id.toString()}>
 			<Accordion.Header className="closed-card">
 				{
 					favorite ?

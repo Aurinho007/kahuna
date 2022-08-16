@@ -85,7 +85,6 @@ export default class Controller {
     static filterInvestimentsByName() : Array<Investiment>{
         
         const investiment = this.getAllInvestiments()
-        console.log(investiment.sort((a, b) => (a.ticker > b.ticker ? -1 : 1)))
         return investiment.sort((a, b) => (a.ticker > b.ticker ? 1 : -1))
     }
 
@@ -101,7 +100,6 @@ export default class Controller {
         const investiments = this.getAllInvestiments()
         const favoriteInvestments = investiments.filter((investiment) => investiment.favorite)
         const notFavoriteInvestments = investiments.filter((investiment) => !investiment.favorite)
-        console.log(favoriteInvestments.concat(notFavoriteInvestments))
 
         return favoriteInvestments.concat(notFavoriteInvestments)
 

@@ -1,6 +1,11 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useContext, useState,  useEffect  } from 'react';
 import { Button, Modal, Table } from 'react-bootstrap';
+import { NotifyContext } from '../../contexts/NotifyContext';
+import Controller from '../../controllers/Controller';
+import CoinInfo from '../../types/CoinInfo';
+import Investiment from '../../types/Investiment';
+import BodyNotifyModal from '../BodyNotifyModal';
 import './index.css'
 
 function ModalNotify() {
@@ -9,6 +14,14 @@ function ModalNotify() {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [dataApi, setDataApi] = useState()
+
+    const context = useContext(NotifyContext);
+
+    const investiments: Array<Investiment> = Controller.getAllInvestiments();    
+
+    
     
     return ( 
         <Modal show={show} onHide={handleClose}>
@@ -33,25 +46,17 @@ function ModalNotify() {
                                 </th>
                             </tr>
                         </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        BTC
-                                    </td>
-                                    <td>
-                                        12%
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        ETH
-                                    </td>
-                                    <td>
-                                        17%
-                                    </td>
-                                </tr>
-                            </tbody>
+                        <tbody>
+                            {
+                                investiments.map((inv) => {
+                                    return (
+                                        <BodyNotifyModal key={inv.id} inv={inv}/>
+                                    );
+                                })
+                            }
+                        </tbody>
                     </Table>
+
                 
             </div>
             
