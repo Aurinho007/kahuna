@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Accordion } from "react-bootstrap";
-import { BsFilter } from 'react-icons/bs'
 import Controller from '../../controllers/Controller';
-import Investiment from '../../types/Investiment';
+import FilterButton from '../FilterButton';
 import ImageDefaultInvestment from '../ImageDefaultInvestment';
 import InvestimentItem from '../InvestimentItem';
 import KButton from '../KButton';
@@ -18,7 +17,7 @@ function InvestmentList() {
             <div className="investiments-header">
                 <h1>Seus investimentos</h1>
                 <div className="investiments-header-inputs">
-                    <BsFilter id="btn-filter"/>
+                   <FilterButton/>
                     <KButton 
                         id="btn-add-investiment" 
                         text="Adicionar investimento" 

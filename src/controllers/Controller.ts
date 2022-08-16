@@ -40,35 +40,46 @@ export default class Controller {
         return 0;
     }
 
-    static filterInvestments(typeFilter: string) : Array<Investiment>{
+    static filterInvestments(typeFilter: string) : void{
 
-        typeFilter = typeFilter.toLowerCase()
         switch (typeFilter){
             case 'name':
-                return this.filterInvestmentsByName();
+                this.updateInvestiments(
+                    this.filterInvestmentsByName()
+                );
+                break;
             case 'price':
-                return this.filterInvestmentsByPrice();
+                this.updateInvestiments(
+                    this.filterInvestmentsByPrice()
+                );
+                break;
             case 'favorite':
-                return this.filterInvestmentByFavorite();
+                this.updateInvestiments(
+                    this.filterInvestmentsByFavorite()
+                );
+                break;
             default:
-                throw new Error('This function only recives "name", "price" and "favorite" as a param')
+                throw new Error(
+                    'This function only recives "name", "price" and "favorite" as a param'
+                )
         }
     }
 
     static filterInvestmentsByName() : Array<Investiment>{
         
         const investiment = this.getAllInvestiments()
+        console.log(investiment.sort((a, b) => a.name.localeCompare(b.name)))
         return investiment.sort((a, b) => a.name.localeCompare(b.name))
     }
 
     static filterInvestmentsByPrice() : Array<Investiment>{
 
         const investiment = this.getAllInvestiments()
-        return investiment.sort((a, b) => a.amount - b.amount)
+        return investiment.sort((a, b) => b.amount - a.amount)
         
     }
     
-    static filterInvestmentByFavorite() : Array<Investiment>{
+    static filterInvestmentsByFavorite() : Array<Investiment>{
 
         const investiments = this.getAllInvestiments()
         const favoriteInvestments = investiments.filter((investiment) => investiment.favorite)

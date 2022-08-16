@@ -1,0 +1,28 @@
+.filter-icon {
+    font-size: 1.3rem;
+    color: var(--white)
+
+}
+
+.alpha {
+    font-size: 1.5rem;
+}
+
+#dropdown-basic {
+    height: 31px;
+    width: 37.2px;
+    background-color: var(--grafite);
+    border: none;
+    padding: 0;
+    margin-right: 18px;  
+}
+
+.dropdown-menu {
+    width: 58px;
+    margin-left: -10px;
+    background-color: var(--snd-black);
+    --bs-dropdown-min-width: 58px;
+    --bs-dropdown-link-hover-bg: var(--blue)
+}
+
+
