@@ -111,7 +111,7 @@ function CardBody(props: Investiment) {
                 </div>
                 <div className="user-purchase-info">
                     <span className="user-gains">
-                        Até o momento você teve <span className='bolded'>{total ? formatBRLCurrency(props.amount - total) : ''}</span> de 
+                        Até o momento você teve <span className='bolded'>{total ? formatBRLCurrency(Math.abs(total - props.amount)) : ''}</span> de 
                         <span className={`${total && total < props.amount ? 'colored-lost' : 'colored-gain'}`}>
                             {total && total < props.amount ? ' PREJUÍZO' : ' LUCRO'}
                         </span>
