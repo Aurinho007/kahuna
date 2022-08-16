@@ -16,6 +16,23 @@ export default class Controller {
         localStorage.setItem('investiments', JSON.stringify(investiments));
     }
 
+    static updateInvestiment(investiment: Investiment): void {
+        let investiments = this.getAllInvestiments();
+
+        investiments?.filter(inv => {
+            if(inv.id === investiment.id) {
+                inv.amount = investiment.amount;
+                inv.favorite = investiment.favorite;
+                inv.name = investiment.name;
+                inv.purchaseDate = investiment.purchaseDate;
+                inv.purchasePrice = investiment.purchasePrice;
+                inv.ticker = investiment.ticker
+            }
+        });
+
+        this.updateInvestiments(investiments);
+    }
+
     static removeInvestiment(investiment: Investiment): void {
         let investiments = this.getAllInvestiments();
 
@@ -40,22 +57,22 @@ export default class Controller {
         return 0;
     }
 
-    static filterInvestments(typeFilter: string) : void{
+    static filterInvestiments(typeFilter: string) : void{
 
         switch (typeFilter){
             case 'name':
                 this.updateInvestiments(
-                    this.filterInvestmentsByName()
+                    this.filterInvestimentsByName()
                 );
                 break;
             case 'price':
                 this.updateInvestiments(
-                    this.filterInvestmentsByPrice()
+                    this.filterInvestimentsByPrice()
                 );
                 break;
             case 'favorite':
                 this.updateInvestiments(
-                    this.filterInvestmentsByFavorite()
+                    this.filterInvestimentsByFavorite()
                 );
                 break;
             default:
@@ -65,25 +82,26 @@ export default class Controller {
         }
     }
 
-    static filterInvestmentsByName() : Array<Investiment>{
+    static filterInvestimentsByName() : Array<Investiment>{
         
         const investiment = this.getAllInvestiments()
-        console.log(investiment.sort((a, b) => a.name.localeCompare(b.name)))
-        return investiment.sort((a, b) => a.name.localeCompare(b.name))
+        console.log(investiment.sort((a, b) => (a.ticker > b.ticker ? -1 : 1)))
+        return investiment.sort((a, b) => (a.ticker > b.ticker ? 1 : -1))
     }
 
-    static filterInvestmentsByPrice() : Array<Investiment>{
+    static filterInvestimentsByPrice() : Array<Investiment>{
 
         const investiment = this.getAllInvestiments()
         return investiment.sort((a, b) => b.amount - a.amount)
         
     }
     
-    static filterInvestmentsByFavorite() : Array<Investiment>{
+    static filterInvestimentsByFavorite() : Array<Investiment>{
 
         const investiments = this.getAllInvestiments()
         const favoriteInvestments = investiments.filter((investiment) => investiment.favorite)
         const notFavoriteInvestments = investiments.filter((investiment) => !investiment.favorite)
+        console.log(favoriteInvestments.concat(notFavoriteInvestments))
 
         return favoriteInvestments.concat(notFavoriteInvestments)
 
