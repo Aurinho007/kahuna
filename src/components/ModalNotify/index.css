@@ -1,0 +1,26 @@
+.modal-body {
+    display: flex;
+    justify-content: center;
+}
+
+
+.modal-notify-title {
+    color: var(--white);
+    font-family: var(--title);
+    font-size: 1rem;
+    padding-bottom: 20px;
+}
+
+td, th {
+text-align: center;
+color: var(--white);
+}
+
+.table-dark {
+    --bs-table-striped-color: var(--white);
+    --bs-table-striped-bg: var(--snd-black);
+    --bs-table-bg: var(--snd-black);
+}
+
+
+

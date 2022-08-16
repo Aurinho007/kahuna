@@ -79,6 +79,11 @@
     --bs-accordion-border-color: var(--grafite);
 }
 
+.dropdown-toggle::after {
+    display: none;
+}
+
+
 @media(max-width: 880px){
 
     .investiments-header {
