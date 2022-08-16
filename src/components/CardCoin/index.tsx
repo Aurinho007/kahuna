@@ -30,6 +30,7 @@ function CardCoin(props: CardCoinProps) {
     }
 
     useEffect(() => {
+        loadPrices();
         setInterval(() => {
             loadPrices();
         }, 10000)

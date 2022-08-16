@@ -19,6 +19,9 @@ function CardBody(props: Investiment) {
 
     useEffect(() => {
         loadApi()
+        setInterval(() => {
+            loadApi()
+        }, 10000)
     }, [])
 
     return ( 
