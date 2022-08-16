@@ -14,9 +14,7 @@ function CardBody(props: Investiment) {
         const data = await CoinApi.getCoinInfo(props.ticker);
         setApi(data);
 
-        if(api?.currentPriceBRL) {
-            setTotal((props.amount / props.purchasePrice) * api?.currentPriceBRL);
-        }
+        setTotal((props.amount / props.purchasePrice) * data?.currentPriceBRL);
     }
 
     useEffect(() => {

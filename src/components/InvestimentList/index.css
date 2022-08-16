@@ -82,7 +82,8 @@
 @media(max-width: 880px){
 
     .investiments-header {
-        flex-direction: column;
+        width: 85%;
+        justify-content: space-between;
     }
 
     .investiments-header-inputs {
@@ -92,8 +93,23 @@
 
     #investment-list {
         width: 85%;
-    
     }
-
 }
 
+@media(max-width: 586px){
+
+    .investiments-header {
+        width: 85%;
+        flex-direction: column;
+        align-items: center !important;
+    }
+
+    .investiments-header h1 {
+        text-align: center;
+    }
+
+    .investiments-header-inputs {
+        align-self: center;
+        margin-top: 10px;
+    }
+}
