@@ -39,4 +39,44 @@ export default class Controller {
         }
         return 0;
     }
+
+    static filterInvestments(typeFilter: string) : Array<Investiment>{
+
+        typeFilter = typeFilter.toLowerCase()
+        switch (typeFilter){
+            case 'name':
+                return this.filterInvestmentsByName();
+            case 'price':
+                return this.filterInvestmentsByPrice();
+            case 'favorite':
+                return this.filterInvestmentByFavorite();
+            default:
+                throw new Error('This function only recives "name", "price" and "favorite" as a param')
+        }
+    }
+
+    static filterInvestmentsByName() : Array<Investiment>{
+        
+        const investiment = this.getAllInvestiments()
+        return investiment.sort((a, b) => a.name.localeCompare(b.name))
+    }
+
+    static filterInvestmentsByPrice() : Array<Investiment>{
+
+        const investiment = this.getAllInvestiments()
+        return investiment.sort((a, b) => a.amount - b.amount)
+        
+    }
+    
+    static filterInvestmentByFavorite() : Array<Investiment>{
+
+        const investiments = this.getAllInvestiments()
+        const favoriteInvestments = investiments.filter((investiment) => investiment.favorite)
+        const notFavoriteInvestments = investiments.filter((investiment) => !investiment.favorite)
+
+        return favoriteInvestments.concat(notFavoriteInvestments)
+
+    }
+
+
 }
