@@ -75,7 +75,9 @@ class CoinApi {
 
     static async getCoinGrowth(lastInfo: TickerData, lastDaySum: Summary): Promise<number> {
         const currentPrice: number = parseFloat(lastInfo.last);
-        let growth = ((currentPrice - lastDaySum.avg_price) / lastDaySum.avg_price) * 100;
+        const openPrice: number = parseFloat(lastInfo.open);
+
+        let growth = (currentPrice / openPrice) * 100 - 100;
             
         return parseFloat(growth.toFixed(2));
     }

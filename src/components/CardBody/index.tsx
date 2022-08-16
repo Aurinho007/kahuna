@@ -7,11 +7,16 @@ import Investiment from '../../types/Investiment';
 import './index.css'
 
 function CardBody(props: Investiment) {
-    const [api, setApi] = useState<CoinInfo>()
+    const [api, setApi] = useState<CoinInfo>();
+    const [total, setTotal] = useState<number>();
 
     async function loadApi() {
         const data = await CoinApi.getCoinInfo(props.ticker);
         setApi(data);
+
+        if(api?.currentPriceBRL) {
+            setTotal((props.amount / props.purchasePrice) * api?.currentPriceBRL);
+        }
     }
 
     useEffect(() => {
@@ -48,7 +53,7 @@ function CardBody(props: Investiment) {
                         Quantidade de { props.ticker } comprados
                     </span>
                     <span className="user-purchase-value">
-                        { (props.amount / props.purchasePrice).toFixed(2)}
+                        { parseFloat((props.amount / props.purchasePrice).toFixed(4)) }
                     </span>
                 </div>
                 <div className="user-purchase-info">
@@ -78,15 +83,15 @@ function CardBody(props: Investiment) {
                         Valor atual de { props.ticker }
                     </span>
                     <span className="user-purchase-value">
-                        { api?.currentPriceBRL.toFixed(2) }
+                        { api?.currentPriceBRL ? formatBRLCurrency(api?.currentPriceBRL) : '' }
                     </span>
                 </div>
                 <div className="user-purchase-info">
                     <span className="user-purchase-label">
-                        Valorização
+                        Valorização em 24h
                     </span>
                     <span className={`user-purchase-value ${api?.growth && api?.growth > 0 ? 'colored-gain' : 'colored-lost'}`}>
-                        {api?.growth && api?.growth > 0 ? '+' : '-' } {api?.growth.toFixed(2)}%
+                        {api?.growth && api?.growth > 0 ? '+' : '' } {api?.growth.toFixed(2)}%
                     </span>
                 </div>
             </div>
@@ -99,13 +104,16 @@ function CardBody(props: Investiment) {
                     <span className="user-purchase-label">
                         Total
                     </span>
-                    <span className="user-purchase-value important-value">
-                        { api?.currentPriceBRL ? (props.purchasePrice * api?.currentPriceBRL).toFixed(2) : ''} //AQUI
+                    <span className={`user-purchase-value important-value ${total && total < props.amount ? 'colored-lost' : 'colored-gain'}`}>
+                        { total ? formatBRLCurrency(total) : ''}
                     </span>
                 </div>
                 <div className="user-purchase-info">
                     <span className="user-gains">
-                        Até o momento você teve R$ {'258,00'} de {'LUCRO'}
+                        Até o momento você teve <span className='bolded'>{total ? formatBRLCurrency(props.amount - total) : ''}</span> de 
+                        <span className={`${total && total < props.amount ? 'colored-lost' : 'colored-gain'}`}>
+                            {total && total < props.amount ? ' PREJUÍZO' : ' LUCRO'}
+                        </span>
                     </span>
                 </div>
             </div>

@@ -16,11 +16,13 @@ function InvestimentItem(props: Investiment) {
         {
         favorite ? 
           <AiFillStar
+            title="Favoritar moeda"
             className="btn-fav"
             onClick={() => setFavorite(!favorite)}
           />
           : 
           <AiOutlineStar
+            title="Favoritar moeda"
             className="btn-fav"
             onClick={() => setFavorite(!favorite)}
           />

@@ -1,6 +1,10 @@
 .btn-fav {
-    font-size: 2.2rem;
+    font-size: 30px;
     color: var(--yellow)
+}
+
+.openned-card.accordion-body {
+    width: 100% !important;
 }
 
 .accordion-item {

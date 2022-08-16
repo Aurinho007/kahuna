@@ -16,15 +16,16 @@
     flex-direction: column;
     width: 33%;
     align-items: center;
-    min-width: 155px
+    min-width: 155px;
 }
 
 .user-purchase-title {
     font-family: var(--title);
     font-size: 1.3rem;
-    padding-bottom: 18px;
+    margin-bottom: 18px;
+    padding-bottom: 4px;
     font-weight: bold;
-    text-decoration: underline;
+    border-bottom: 2px solid var(--yellow);
 }
 
 .user-purchase-info {
@@ -54,14 +55,19 @@
     font-family: var(--text);
     font-size: .9rem;
     max-width: 190px;
+    line-height: 1rem;
+}
+
+.bolded {
+    font-weight: bold;
 }
 
 .colored-gain {
-    color: #00ff00
+    color: var(--positive);
 }
 
 .colored-lost {
-    color: #ff0000;
+    color: var(--negative);
 }
 
 .user-actions {
@@ -95,6 +101,6 @@
     }
 
     .user-purchase-title {
-        text-decoration: underline;
+        border-bottom: 1px solid var(--yellow);
     }
 }
