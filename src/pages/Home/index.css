@@ -4,12 +4,12 @@
     justify-content: space-between;
     margin: 0 10vw;
     margin-top: 100px;
-    max-width: 1000px;
+    max-width: max-content;
+    max-height: max-content;
 }
 
 .home-container {
     width: 45%;
-    margin-top: 50px;
     min-width: 230px;
 }
 
@@ -28,14 +28,15 @@
 }
 
 .fst-container {
-    margin-top: 10%;
+    margin-top: 12%;
     width: 100%;
 }
 
 #home-img {
     width: 35vw;
     max-width: 450px;
-    min-width: 230px
+    min-width: 230px;
+    margin-top: -10%
 }
 
 .card-container {
