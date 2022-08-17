@@ -39,6 +39,10 @@
     box-shadow: none;
 }
 
+.readonly {
+    background-color: rgb(55, 55, 55);
+}
+
 .type-label {
     background-color: var(--snd-black);
     color: var(--gray);

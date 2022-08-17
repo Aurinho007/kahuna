@@ -34,8 +34,8 @@ export default class Controller {
     }
 
     static removeInvestiment(investiment: Investiment): void {
-        let investiments = this.getAllInvestiments();
 
+        let investiments = this.getAllInvestiments();
         investiments = investiments.filter(inv => inv.id !== investiment.id);
         this.updateInvestiments(investiments);
     }

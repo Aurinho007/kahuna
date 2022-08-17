@@ -7,7 +7,8 @@ interface BodyProps {
     key: number
 }
 
-function BodyNotifyModal({ inv }: BodyProps) {
+function 
+BodyNotifyModal({ inv }: BodyProps) {
     const context = useContext(NotifyContext);
     const [ticker, setTicker] = useState<string>("");
     const [gainsPercent, setGainsPercent] = useState<number>();

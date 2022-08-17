@@ -8,10 +8,16 @@ import BodyNotifyModal from '../BodyNotifyModal';
 import './index.css'
 
 function ModalNotify() {
-    const [showThis, setShowThis] = useState<boolean>(Controller.needToNotify());
+    const [showThis, setShowThis] = useState<boolean>(false);
     const investiments: Array<Investiment> = Controller.getAllInvestiments();
 
     const handleClose = () => setShowThis(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setShowThis(Controller.needToNotify());
+        }, 3000)
+    }, [])
     
     return ( 
         <Modal show={showThis} onHide={handleClose}>

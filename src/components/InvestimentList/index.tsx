@@ -12,9 +12,13 @@ import './index.css'
 import Investiment from '../../types/Investiment';
 
 function InvestmentList() {
+    const [updateView, setUpdateView] = useState<number>();
     const [showModalAddInvest, setShowModalAddInvest] = useState<boolean>(false);
+    const { investimentsToShow, setInvestimentsToShow } = useContext(UserContext);
 
-    const { investimentsToShow } = useContext(UserContext);
+    useEffect(() => {
+        setInvestimentsToShow && setInvestimentsToShow(Controller.getAllInvestiments());
+    }, [updateView])
     
     return (
         <section id="container-investment-list">
@@ -44,7 +48,7 @@ function InvestmentList() {
             <div id="investment-list"> 
                 <Accordion flush>
                     {Controller.getAllInvestiments().map(inv => {
-                        return <InvestimentItem key={inv.id} {...inv}/>
+                        return <InvestimentItem key={inv.id} props={inv} setUpdateView={setUpdateView}/>
                     })}
                 </Accordion>
             </div>

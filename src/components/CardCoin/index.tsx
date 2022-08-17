@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
-import { formatBRLCurrency, formatUSDCurrency } from '../../helpers/DateHelper';
+import { formatBRLCurrency, formatUSDCurrency } from '../../helpers/Helper';
 import CoinApi from '../../services/CoinApi';
 import './index.css';
 
