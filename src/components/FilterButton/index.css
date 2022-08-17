@@ -4,6 +4,10 @@
 
 }
 
+#btn-filter {
+    color: var(--white) !important;
+}
+
 .alpha {
     font-size: 1.5rem;
 }

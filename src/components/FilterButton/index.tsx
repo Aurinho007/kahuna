@@ -6,8 +6,8 @@ import { BsFilter } from "react-icons/bs";
 import { TiSortAlphabetically } from "react-icons/ti";
 import { MdAttachMoney } from "react-icons/md";
 import { AiFillStar } from "react-icons/ai";
-import "./index.css";
 import { UserContext } from "../../contexts/UserContext";
+import "./index.css";
 
 interface FilterButtonProps {
     initialType: string
