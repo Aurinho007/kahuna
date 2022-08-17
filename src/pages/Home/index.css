@@ -6,7 +6,7 @@
 
 .home {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     margin: 0 10vw;
     padding-top: 10vh;
@@ -97,6 +97,7 @@
 
     .home {
         flex-direction: column;
+        min-width: 100vw;
     }
 
     #home-img {

@@ -1,8 +1,6 @@
-
-
 .coin {
     min-width: 300px;
-    width: 390px;
+    width: 100%;
     max-width: 380px;
     height: max-content;
     max-height: 210px;
@@ -86,5 +84,11 @@
         display: grid;
         grid-template-columns: 380px, 380px, 380px;
     }
+}
 
+@media(max-width: 450px){
+
+    .coins, coins-container {
+        width: 90vw !important;
+    }
 }
