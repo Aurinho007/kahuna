@@ -34,8 +34,8 @@ export default class Controller {
     }
 
     static removeInvestiment(investiment: Investiment): void {
-        let investiments = this.getAllInvestiments();
 
+        let investiments = this.getAllInvestiments();
         investiments = investiments.filter(inv => inv.id !== investiment.id);
         this.updateInvestiments(investiments);
     }
@@ -57,9 +57,7 @@ export default class Controller {
         return 0;
     }
 
-    static changeNotifications(notify: boolean): void {
-        console.log(notify)
-        localStorage.removeItem('notify');
+    static changeNotifications(notify: boolean): void {        localStorage.removeItem('notify');
         localStorage.setItem('notify', JSON.stringify(notify));
     }
 

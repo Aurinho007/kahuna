@@ -9,10 +9,10 @@ import Container from 'react-bootstrap/Container';
 import CoinApi from '../../services/CoinApi';
 import toast, { Toaster } from 'react-hot-toast';
 import './index.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Controller from '../../controllers/Controller';
 import Investiment from '../../types/Investiment';
-import { dateToTextFR, formatPrice } from '../../helpers/DateHelper'; 
+import { dateToTextFR, formatPrice, moneyStringToFloat } from '../../helpers/Helper'; 
 
 interface ModalAddInvest {
     headerTitle: string
@@ -22,11 +22,24 @@ interface ModalAddInvest {
 }
 
 function ModalAddInvest(props: ModalAddInvest) {
-    const handleClose = () => props.setShowModalAddInvest(false);
+    const handleClose = () =>  props.setShowModalAddInvest(false) 
     const [coin, setCoin] = useState<string>('');
     const [purchaseDate, setPurchaseDate] = useState<string>(dateToTextFR(new Date()));
     const [purchasePrice, setPurchasePrice] = useState<string>('');
     const [amount, setAmount] = useState<string>('');
+
+    const [cripto, setCripto] = useState<number>(0)
+
+    
+
+    useEffect(() => {
+
+        setCripto(
+            moneyStringToFloat(amount) / 
+            moneyStringToFloat(purchasePrice)
+            )
+
+    }, [amount, purchasePrice])
 
     function handleSubmit(): void {
         if(!validateFields()) {
@@ -60,15 +73,22 @@ function ModalAddInvest(props: ModalAddInvest) {
             return false
         }
 
+        if(parseFloat(amount.replaceAll(".","").replace(",",".")) < 1){
+            toast.error('A quantia comprada não pode ser menor que R$ 1,00');
+            return false
+        }
+
         return true;
     }
 
     function clearInputs() {
         setCoin('');
-        setPurchaseDate('');
+        setPurchaseDate(new Date());
         setPurchasePrice('');
         setAmount('');
     }
+
+    //aqui pra baixo é pra ta no helper!!
 
     function maskPrice(number: string, setter: React.Dispatch<React.SetStateAction<string>>): void{
 
@@ -93,7 +113,9 @@ function ModalAddInvest(props: ModalAddInvest) {
         }).format(parseFloat(valor))
 
         return formatValue.substring(3, formatValue.length)
-      }
+    }
+
+    //________________________________
 
       
 
@@ -173,7 +195,25 @@ function ModalAddInvest(props: ModalAddInvest) {
                                 <Form.Control
                                     className="modal-input"
                                     autoComplete='off'
-                                    value={amount}
+                                    value={ amount }
+                                    onInput={ (e) => maskPrice(e.currentTarget.value, setAmount) }
+                                     
+                                />
+                            </InputGroup>
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={16} md={12}>
+                        <Form.Group className="mb-3" controlId="amount">
+                            <Form.Label className="label-input">Quantia em cripto</Form.Label>
+                            <InputGroup className="mb-3">
+                                <InputGroup.Text className="type-label">{ coin.split(" - ")[0] }</InputGroup.Text>
+                                <Form.Control
+                                    className="modal-input readonly"
+                                    autoComplete='off'
+                                    readOnly
+                                    value={ cripto > 0 && moneyStringToFloat(amount) >= 1 && String(cripto) !== 'Infinity' ? (parseFloat(cripto.toFixed(6))) : '-' }
                                     onInput={(e) => maskPrice(e.currentTarget.value, setAmount)}
                                 />
                             </InputGroup>

@@ -33,3 +33,8 @@ export function formatUSDCurrency(number: number | undefined): string {
     }
     return '';
 }
+
+export function moneyStringToFloat(value: string) : number {
+    let formattedValue = parseFloat(value.replaceAll(".","").replace(",","."))
+    return formattedValue
+}

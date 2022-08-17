@@ -1,20 +1,29 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
-import { dateToTextBR, formatBRLCurrency } from '../../helpers/DateHelper';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import Controller from '../../controllers/Controller';
+import { dateToTextBR, formatBRLCurrency } from '../../helpers/Helper';
 import CoinApi from '../../services/CoinApi';
 import CoinInfo from '../../types/CoinInfo';
 import Investiment from '../../types/Investiment';
+import InvestimentItem from '../InvestimentItem';
 import './index.css'
 
-function CardBody(props: Investiment) {
+interface CardBodyProps {
+	props: Investiment,
+	setUpdateView: Dispatch<SetStateAction<number | undefined>>
+}
+
+function CardBody(params: CardBodyProps) {
     const [api, setApi] = useState<CoinInfo>();
     const [total, setTotal] = useState<number>();
 
+    const [deletedId, setDeletedId] = useState<number>()
+
     async function loadApi() {
-        const data = await CoinApi.getCoinInfo(props.ticker);
+        const data = await CoinApi.getCoinInfo(params.props.ticker);
         setApi(data);
 
-        setTotal((props.amount / props.purchasePrice) * data?.currentPriceBRL);
+        setTotal((params.props.amount / params.props.purchasePrice) * data?.currentPriceBRL);
     }
 
     useEffect(() => {
@@ -23,6 +32,11 @@ function CardBody(props: Investiment) {
             loadApi()
         }, 10000)
     }, [])
+
+    function removeInvestiment() : void {
+        Controller.removeInvestiment(params.props);
+        params.setUpdateView(params.props.id)
+    }
 
     return ( 
         <section className="container">
@@ -38,23 +52,23 @@ function CardBody(props: Investiment) {
                         Data da compra
                     </span>
                     <span className="user-purchase-value">
-                        { dateToTextBR(props.purchaseDate) }
+                        { dateToTextBR(params.props.purchaseDate) }
                     </span>
                 </div>
                 <div className="user-purchase-info">
                     <span className="user-purchase-label">
-                        Valor de { props.ticker } na data da compra
+                        Valor de { params.props.ticker } na data da compra
                     </span>
                     <span className="user-purchase-value">
-                        { formatBRLCurrency(props.purchasePrice) }
+                        { formatBRLCurrency(params.props.purchasePrice) }
                     </span>
                 </div>
                 <div className="user-purchase-info">
                     <span className="user-purchase-label">
-                        Quantidade de { props.ticker } comprados
+                        Quantidade de { params.props.ticker } comprados
                     </span>
                     <span className="user-purchase-value">
-                        { parseFloat((props.amount / props.purchasePrice).toFixed(4)) }
+                        { parseFloat((params.props.amount / params.props.purchasePrice).toFixed(4)) }
                     </span>
                 </div>
                 <div className="user-purchase-info">
@@ -62,7 +76,7 @@ function CardBody(props: Investiment) {
                         Valor da compra
                     </span>
                     <span className="user-purchase-value important-value">
-                        { formatBRLCurrency(props.amount) }
+                        { formatBRLCurrency(params.props.amount) }
                     </span>
                 </div>
             </div>
@@ -81,7 +95,7 @@ function CardBody(props: Investiment) {
                 </div>
                 <div className="user-purchase-info">
                     <span className="user-purchase-label">
-                        Valor atual de { props.ticker }
+                        Valor atual de { params.props.ticker }
                     </span>
                     <span className="user-purchase-value">
                         { api?.currentPriceBRL ? formatBRLCurrency(api?.currentPriceBRL) : '' }
@@ -105,15 +119,15 @@ function CardBody(props: Investiment) {
                     <span className="user-purchase-label">
                         Total
                     </span>
-                    <span className={`user-purchase-value important-value ${total && total < props.amount ? 'colored-lost' : 'colored-gain'}`}>
+                    <span className={`user-purchase-value important-value ${total && total < params.props.amount ? 'colored-lost' : 'colored-gain'}`}>
                         { total ? formatBRLCurrency(total) : ''}
                     </span>
                 </div>
                 <div className="user-purchase-info">
                     <span className="user-gains">
-                        Até o momento você teve <span className='bolded'>{total ? formatBRLCurrency(Math.abs(total - props.amount)) : ''}</span> de 
-                        <span className={`${total && total < props.amount ? 'colored-lost' : 'colored-gain'}`}>
-                            {total && total < props.amount ? ' PREJUÍZO' : ' LUCRO'}
+                        Até o momento você teve <span className='bolded'>{total ? formatBRLCurrency(Math.abs(total - params.props.amount)) : ''}</span> de 
+                        <span className={`${total && total < params.props.amount ? 'colored-lost' : 'colored-gain'}`}>
+                            {total && total < params.props.amount ? ' PREJUÍZO' : ' LUCRO'}
                         </span>
                     </span>
                 </div>
@@ -122,9 +136,8 @@ function CardBody(props: Investiment) {
 
         <div className='user-actions'>
             <button className='action' onClick={() => alert("Em breve!")}>Editar</button>
-            <button className='action' onClick={() => alert("Em breve!")}>Apagar</button>
+            <button className='action' onClick={() => removeInvestiment() }>Apagar</button>
         </div>
-            
         </section>
     );
 }
