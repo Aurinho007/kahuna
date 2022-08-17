@@ -4,14 +4,20 @@ import { FaRegBell, FaBell } from 'react-icons/fa'
 import { useEffect, useState } from 'react';
 import KButton from '../KButton';
 import { useNavigate } from 'react-router-dom';
+import Controller from '../../controllers/Controller';
 
 function Header() {
     const [activeBell, setActiveBell] = useState<boolean>(false);
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(activeBell) alert("Em breve!")
-    }, [activeBell])
+        setActiveBell(Controller.needToNotify())
+    }, [])
+
+    function changeNotifications() {
+        Controller.changeNotifications(!activeBell);
+        setActiveBell(!activeBell)
+    }
 
     return (
         <>
@@ -46,12 +52,12 @@ function Header() {
                         activeBell ? 
                         <FaBell 
                             className='btn-bell' 
-                            onClick={() => setActiveBell(!activeBell)}
+                            onClick={() => changeNotifications()}
                         /> 
                         : 
                         <FaRegBell 
                             className='btn-bell' 
-                            onClick={() => setActiveBell(!activeBell)}
+                            onClick={() => changeNotifications()}
                         /> 
                     }
                 </div>

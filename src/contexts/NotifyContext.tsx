@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { createContext, useState } from "react";
+import Controller from '../controllers/Controller';
 import CoinApi from '../services/CoinApi';
 import CoinInfo from '../types/CoinInfo';
 
@@ -17,7 +18,7 @@ async function loadApiData(ticker: string): Promise<CoinInfo>{
 
 function NotifyProvider({ children }: { children: JSX.Element[] | JSX.Element }) {
     const loadData = async (ticker: string) => await loadApiData(ticker);
-    const [showNotify, setShowNotify] = useState<boolean>(true);
+    const [showNotify, setShowNotify] = useState<boolean>(false);
 
     return (
         <NotifyContext.Provider value={{ loadData, showNotify, setShowNotify }}>

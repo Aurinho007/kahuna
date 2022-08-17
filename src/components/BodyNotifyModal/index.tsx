@@ -21,7 +21,6 @@ function BodyNotifyModal({ inv }: BodyProps) {
 
             let gains = Math.abs( 1 - (inv.amount/total))*100
             
-            console.log('sim')
             if(gains > 10) {
                 setTicker(data.ticker);
                 setGainsPercent(gains);

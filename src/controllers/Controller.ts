@@ -57,6 +57,22 @@ export default class Controller {
         return 0;
     }
 
+    static changeNotifications(notify: boolean): void {
+        console.log(notify)
+        localStorage.removeItem('notify');
+        localStorage.setItem('notify', JSON.stringify(notify));
+    }
+
+    static needToNotify() {
+        const notify = localStorage.getItem('notify');
+
+        if(notify) {
+            return JSON.parse(notify);
+        }
+        
+        return false;
+    }
+
     static filterInvestiments(typeFilter: string) : void{
 
         switch (typeFilter){
