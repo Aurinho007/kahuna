@@ -8,14 +8,13 @@ import BodyNotifyModal from '../BodyNotifyModal';
 import './index.css'
 
 function ModalNotify() {
-    const { showNotify, setShowNotify } = useContext(NotifyContext);
     const [showThis, setShowThis] = useState<boolean>(Controller.needToNotify());
     const investiments: Array<Investiment> = Controller.getAllInvestiments();
 
     const handleClose = () => setShowThis(false);
     
     return ( 
-        <Modal show={showThis} onHide={handleClose} style={{display: showNotify ? 'flex' : 'none'}}>
+        <Modal show={showThis} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Notificação de rendimento</Modal.Title>
         </Modal.Header>

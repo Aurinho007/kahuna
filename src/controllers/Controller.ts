@@ -12,7 +12,7 @@ export default class Controller {
     }
 
     static updateInvestiments(investiments: Investiment[]): void {
-        localStorage.clear();
+        localStorage.removeItem('investiments');
         localStorage.setItem('investiments', JSON.stringify(investiments));
     }
 
@@ -57,24 +57,23 @@ export default class Controller {
         return 0;
     }
 
-    static changeNotifications(notify: boolean): void {
-        console.log(notify)
-        localStorage.removeItem('notify');
-        localStorage.setItem('notify', JSON.stringify(notify));
+
+    static changeNotifications(): void {
+        localStorage.setItem('notify', JSON.stringify(!this.needToNotify()));
     }
 
-    static needToNotify() {
-        const notify = localStorage.getItem('notify');
+    static needToNotify(): boolean {
+        const notifyLS = localStorage.getItem('notify')
 
-        if(notify) {
-            return JSON.parse(notify);
+        if(!notifyLS){
+            localStorage.setItem('notify', JSON.stringify(false))
+            return false
+        } else {
+            return JSON.parse(notifyLS);
         }
-        
-        return false;
     }
 
     static filterInvestiments(typeFilter: string) : void{
-
         switch (typeFilter){
             case 'name':
                 this.updateInvestiments(
@@ -99,20 +98,19 @@ export default class Controller {
     }
 
     static filterInvestimentsByName() : Array<Investiment>{
-        
         const investiment = this.getAllInvestiments()
+        
         return investiment.sort((a, b) => (a.ticker > b.ticker ? 1 : -1))
     }
 
     static filterInvestimentsByPrice() : Array<Investiment>{
-
         const investiment = this.getAllInvestiments()
+
         return investiment.sort((a, b) => b.amount - a.amount)
         
     }
     
     static filterInvestimentsByFavorite() : Array<Investiment>{
-
         const investiments = this.getAllInvestiments()
         const favoriteInvestments = investiments.filter((investiment) => investiment.favorite)
         const notFavoriteInvestments = investiments.filter((investiment) => !investiment.favorite)

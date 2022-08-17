@@ -1,21 +1,28 @@
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .home {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin: 0 10vw;
+    padding-top: 10vh;
     margin-top: 100px;
-    max-width: max-content;
-    max-height: max-content;
+    min-width: max-content;
+    min-height: max-content;
+    width: 100%;
 }
 
 .home-container {
-    width: 45%;
-    min-width: 230px;
+    min-width: 50%;
 }
 
 .home-container h1 {
     font-family: var(--title);
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-weight: bold;
     color: var(--gray);
 }
@@ -32,10 +39,14 @@
     width: 100%;
 }
 
+.snd-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #home-img {
-    width: 35vw;
-    max-width: 450px;
-    min-width: 230px;
+    width: 30vw;
     margin-top: -10%
 }
 

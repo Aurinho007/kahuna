@@ -7,17 +7,15 @@ import { useNavigate } from 'react-router-dom';
 import Controller from '../../controllers/Controller';
 
 function Header() {
-    const [activeBell, setActiveBell] = useState<boolean>(false);
+    const [activeBell, setActiveBell] = useState<boolean>(Controller.needToNotify());
     const navigate = useNavigate();
 
-    useEffect(() => {
-        setActiveBell(Controller.needToNotify())
-    }, [])
-
-    function changeNotifications() {
-        Controller.changeNotifications(!activeBell);
+    function changeBell() {
+        Controller.changeNotifications()
         setActiveBell(!activeBell)
     }
+
+
 
     return (
         <>
@@ -52,12 +50,12 @@ function Header() {
                         activeBell ? 
                         <FaBell 
                             className='btn-bell' 
-                            onClick={() => changeNotifications()}
+                            onClick={() => changeBell()}
                         /> 
                         : 
                         <FaRegBell 
                             className='btn-bell' 
-                            onClick={() => changeNotifications()}
+                            onClick={() => changeBell()}
                         /> 
                     }
                 </div>
