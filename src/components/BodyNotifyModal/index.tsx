@@ -1,20 +1,25 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
 import { NotifyContext } from '../../contexts/NotifyContext';
+import Controller from '../../controllers/Controller';
 import Investiment from '../../types/Investiment';
 
-interface BodyProps {
-    inv: Investiment
-    key: number
+interface Greater {
+    id: number
+    ticker: string
+    gain: number
 }
 
-function 
-BodyNotifyModal({ inv }: BodyProps) {
+function BodyNotifyModal() {
     const context = useContext(NotifyContext);
     const [ticker, setTicker] = useState<string>("");
     const [gainsPercent, setGainsPercent] = useState<number>();
+    const investiments: Array<Investiment> = Controller.getAllInvestiments();
+
+    const [greaters, setGreaters] = useState<Greater[]>([])
 
 
-    async function loadCoinsInfo(){
+    async function loadCoinsInfo(inv: Investiment){
         let data;
         if(context.loadData){
             data = await context.loadData(inv.ticker)
@@ -25,26 +30,60 @@ BodyNotifyModal({ inv }: BodyProps) {
             if(gains > 10) {
                 setTicker(data.ticker);
                 setGainsPercent(gains);
+                setGreaters([...greaters, {id: inv.id, ticker: data.ticker, gain: gains}])
                 context.setShowNotify ? context.setShowNotify(true) : '';
             }
         }
     }
 
     useEffect(() => {
-        loadCoinsInfo();
+        investiments.map((inv) => {
+            loadCoinsInfo(inv);
+        })
     }, [])
-    
+
     return <>
-        {
-            gainsPercent && gainsPercent > 10 && <tr>
-                <td>
-                    { ticker }
-                </td>
-                <td>
-                    { gainsPercent?.toFixed(2) }%
-                </td>
-            </tr>
-        }
+            {
+                greaters.length !== 0 ?
+                <>
+                    <div className="title-container">
+                        <p className='modal-notify-title'>As moedas abaixo renderam mais de 10%</p>
+                    </div>
+
+                    <Table className='modal-notify-table' striped bordered hover variant="dark">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Moeda
+                                </th>
+                                <th>
+                                    Rendimento
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                 greaters?.map(greater => {
+
+                                     return (<tr key={greater.id}>
+                                        <td>
+                                            { ticker }
+                                        </td>
+                                        <td>
+                                            { gainsPercent?.toFixed(2) }%
+                                        </td>
+                                    </tr>);
+                                })
+                            }
+                        </tbody>
+                    </Table>
+                </>
+                :
+                <div className="title-container">
+                    <p className='modal-notify-title'>Ainda não existem moedas que renderam mais 10% 😢</p>
+                </div>
+                
+            }
     </>
 }
 

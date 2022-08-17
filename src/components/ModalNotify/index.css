@@ -1,3 +1,13 @@
+.modal-dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 95vw;
+}
+
 .modal-body {
     display: flex;
     justify-content: center;
@@ -11,9 +21,10 @@
     padding-bottom: 20px;
 }
 
-td, th {
-text-align: center;
-color: var(--white);
+.modal-notify-table td, .modal-notify-table th {
+    text-align: center !important;
+    color: var(--white) !important;
+    font-family: var(--text);
 }
 
 .table-dark {
@@ -22,5 +33,7 @@ color: var(--white);
     --bs-table-bg: var(--snd-black);
 }
 
-
+.modal-notify-title {
+    text-align: center;
+}
 

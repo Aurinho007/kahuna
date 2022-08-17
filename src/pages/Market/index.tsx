@@ -14,6 +14,9 @@ function Market() {
     return <>
         <Header/>
         <div className="coins-container">
+            <div className="title-container">
+                <h1>Dados em tempo real das principais moedas</h1>
+            </div>
             <div className={`loading-container  ${show ? 'show' : 'hide'}`}>
                 <img className='loading' src="/animations/loading.gif" alt="Carregando moedas..." />
             </div>

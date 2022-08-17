@@ -9,7 +9,6 @@ import './index.css'
 
 function ModalNotify() {
     const [showThis, setShowThis] = useState<boolean>(false);
-    const investiments: Array<Investiment> = Controller.getAllInvestiments();
 
     const handleClose = () => setShowThis(false);
 
@@ -27,33 +26,7 @@ function ModalNotify() {
         <Modal.Body>
 
             <div className="modal-notify-container">
-                <div className="title-container">
-                    <p className='modal-notify-title'>As moedas abaixo renderam mais de 10%</p>
-                </div>
-
-                    <Table className='modal-notify-table' striped bordered hover variant="dark">
-                        <thead>
-                            <tr>
-                                <th>
-                                    Moeda
-                                </th>
-                                <th>
-                                    Rendimento
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                investiments.map((inv) => {
-                                    return (
-                                        <BodyNotifyModal key={inv.id} inv={inv}/>
-                                    );
-                                })
-                            }
-                        </tbody>
-                    </Table>
-
-                
+                <BodyNotifyModal/>
             </div>
             
         </Modal.Body>
