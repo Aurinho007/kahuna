@@ -21,7 +21,7 @@ function InvestmentList() {
             <div className="investiments-header">
                 <h1>Seus investimentos</h1>
                 <div className="investiments-header-inputs">
-                   <FilterButton initialType="name"/>
+                <FilterButton initialType="name"/>
                     <KButton 
                         id="btn-add-investiment" 
                         text="Adicionar investimento" 

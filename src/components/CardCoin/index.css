@@ -1,7 +1,11 @@
+
+
 .coin {
     min-width: 300px;
     width: 390px;
+    max-width: 380px;
     height: max-content;
+    max-height: 210px;
     display: flex;
     flex-direction: column;
     padding: 3%;
@@ -76,3 +80,11 @@
     color: var(--negative);
 }
 
+@media(max-width: 1450px){
+
+    .coin {
+        display: grid;
+        grid-template-columns: 380px, 380px, 380px;
+    }
+
+}

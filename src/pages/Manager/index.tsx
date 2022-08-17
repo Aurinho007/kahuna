@@ -16,7 +16,7 @@ function Manager() {
     return <>
         <Header/>
         <InvestmentList/>
-        <ModalNotify/>
+        {/* <ModalNotify/> */}
     </>;
 }
 

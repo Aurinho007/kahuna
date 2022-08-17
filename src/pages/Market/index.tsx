@@ -32,7 +32,6 @@ function Market() {
                 <CardCoin ticker='MATIC' image='/images/matic.png'/>
                 <CardCoin ticker='LTC' image='/images/ltc.png'/>
                 <CardCoin ticker='DOT' image='/images/dot.png'/>
-
             </div>
         </div>
     </>;
