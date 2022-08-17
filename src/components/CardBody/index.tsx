@@ -38,6 +38,11 @@ function CardBody(params: CardBodyProps) {
         params.setUpdateView(params.props.id)
     }
 
+    function empty(): void{
+
+    }
+    
+
     return ( 
         <section className="container">
 
@@ -136,7 +141,7 @@ function CardBody(params: CardBodyProps) {
 
         <div className='user-actions'>
             <button className='action' onClick={() => alert("Em breve!")}>Editar</button>
-            <button className='action' onClick={() => removeInvestiment() }>Apagar</button>
+            <button className='action' onClick={() => confirm("Tem certeza que deseja apagar este investimento?")  ? removeInvestiment() : 0 }>Apagar</button>
         </div>
         </section>
     );
