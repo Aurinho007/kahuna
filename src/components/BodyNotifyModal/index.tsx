@@ -15,15 +15,18 @@ function BodyNotifyModal({ inv }: BodyProps) {
 
     async function loadCoinsInfo(){
         let data;
-
         if(context.loadData){
             data = await context.loadData(inv.ticker)
             let total = (inv.amount / inv.purchasePrice) * data?.currentPriceBRL
 
             let gains = Math.abs( 1 - (inv.amount/total))*100
             
-            setTicker(data.ticker);
-            setGainsPercent(gains);
+            console.log('sim')
+            if(gains > 10) {
+                setTicker(data.ticker);
+                setGainsPercent(gains);
+                context.setShowNotify ? context.setShowNotify(true) : '';
+            }
         }
     }
 

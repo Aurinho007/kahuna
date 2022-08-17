@@ -3,28 +3,18 @@ import { useContext, useState,  useEffect  } from 'react';
 import { Button, Modal, Table } from 'react-bootstrap';
 import { NotifyContext } from '../../contexts/NotifyContext';
 import Controller from '../../controllers/Controller';
-import CoinInfo from '../../types/CoinInfo';
 import Investiment from '../../types/Investiment';
 import BodyNotifyModal from '../BodyNotifyModal';
 import './index.css'
 
 function ModalNotify() {
+    const { showNotify, setShowNotify } = useContext(NotifyContext);
+    const investiments: Array<Investiment> = Controller.getAllInvestiments();
 
-    const [show, setShow] = useState(true);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    const [dataApi, setDataApi] = useState()
-
-    const context = useContext(NotifyContext);
-
-    const investiments: Array<Investiment> = Controller.getAllInvestiments();    
-
-    
+    const handleClose = () => setShowNotify && setShowNotify(false);
     
     return ( 
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={showNotify} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Notificação de rendimento</Modal.Title>
         </Modal.Header>
