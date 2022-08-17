@@ -1,7 +1,7 @@
 .home {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin: 0 10vw;
     margin-top: 100px;
     max-width: max-content;
@@ -44,9 +44,10 @@
     width: 100vw;
     padding: 0 2vw;
     flex-wrap: wrap;
+    padding-top: 15vw;
     padding-bottom: 50px;
+    justify-content: center;
 }
-
 
 
 .home-container button {

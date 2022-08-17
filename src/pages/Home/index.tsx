@@ -33,7 +33,7 @@ function Home() {
                     ticker="ETH"
                     image="/images/eth.png"
                 />
-                 <CardCoin
+                <CardCoin
                     ticker="ADA"
                     image="/images/ada.png"
                 />

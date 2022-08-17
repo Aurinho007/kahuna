@@ -121,8 +121,8 @@ function CardBody(props: Investiment) {
         </div>
 
         <div className='user-actions'>
-            <button className='action'>Editar</button>
-            <button className='action'>Apagar</button>
+            <button className='action' onClick={() => alert("Em breve!")}>Editar</button>
+            <button className='action' onClick={() => alert("Em breve!")}>Apagar</button>
         </div>
             
         </section>
