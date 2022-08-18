@@ -103,3 +103,9 @@
         border-bottom: 1px solid var(--yellow);
     }
 }
+
+@media(max-width: 450px){
+    .user-purchase {
+        width: 90%;
+    }
+}

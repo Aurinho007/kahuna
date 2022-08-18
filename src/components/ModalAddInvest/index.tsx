@@ -12,7 +12,7 @@ import './index.css';
 import { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
 import Controller from '../../controllers/Controller';
 import Investiment from '../../types/Investiment';
-import { dateToTextFR, formatPrice, moneyStringToFloat, textToDate } from '../../helpers/Helper'; 
+import { dateToTextFR, formatPrice, maskPrice, moneyStringToFloat, textToDate } from '../../helpers/Helper'; 
 import { UserContext } from '../../contexts/UserContext';
 
 interface ModalAddInvest {
@@ -124,35 +124,6 @@ function ModalAddInvest(props: ModalAddInvest) {
         setPurchasePrice('');
         setAmount('');
     }
-
-    //aqui pra baixo é pra ta no helper!!
-
-    function maskPrice(number: string, setter: React.Dispatch<React.SetStateAction<string>>): void{
-
-        const onlyDigits = number
-        .split("")
-        .filter(s => /\d/.test(s))
-        .join("")
-        .padStart(3, "0")
-        const digitsFloat = onlyDigits.slice(0, -2) + "." + onlyDigits.slice(-2)
-        setter(maskCurrency(digitsFloat))
-
-    }
-
-    function maskCurrency(valor: string, locale = 'pt-BR', currency = 'BRL') {
-
-        if(!valor)
-            return ''
-
-        let formatValue = new Intl.NumberFormat(locale, {
-          style: 'currency',
-          currency
-        }).format(parseFloat(valor))
-
-        return formatValue.substring(3, formatValue.length)
-    }
-
-    //________________________________
 
     function formatSimbol(input: string) {
         CoinApi.getAllCoins().map(coin => {
