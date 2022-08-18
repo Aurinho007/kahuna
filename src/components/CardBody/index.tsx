@@ -26,10 +26,6 @@ function CardBody(params: CardBodyProps) {
     }
 
     useEffect(() => {
-        loadApi();
-    });
-
-    useEffect(() => {
         loadApi()
     }, [])
 

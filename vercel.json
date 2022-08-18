@@ -1,7 +1,5 @@
 {
     "rewrites":  [
-      {"source": "/", "destination": "/"},
-      {"source": "/market", "destination": "/market"},
-      {"source": "/manager", "destination": "/manager"}
+      {"source": "/(.*)", "destination": "/"}
     ]
 }
