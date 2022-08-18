@@ -7,7 +7,7 @@ import Market from './pages/Market';
 function App() {
     
     return (
-        <Router basename={window.location.pathname}>
+        <Router>
             <Routes>
                 <Route path='/' element={<Home/>} />
                 <Route path='/manager' element={<Manager/>} />
