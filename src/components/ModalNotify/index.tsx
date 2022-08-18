@@ -5,7 +5,6 @@ import { NotifyContext } from '../../contexts/NotifyContext';
 import Controller from '../../controllers/Controller';
 import CoinInfo from '../../types/CoinInfo';
 import Investiment from '../../types/Investiment';
-import BodyNotifyModal from '../BodyNotifyModal';
 import './index.css'
 
 interface Greater {
@@ -44,6 +43,10 @@ function ModalNotify() {
                 setShowThis(Controller.needToNotify());
             }
         });
+
+        if(greaters === []) {
+            setShowThis(false)
+        }
 
     }
 
