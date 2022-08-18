@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import KButton from '../KButton';
 import { useNavigate } from 'react-router-dom';
 import Controller from '../../controllers/Controller';
+import toast from 'react-hot-toast';
 
 function Header() {
     const [activeBell, setActiveBell] = useState<boolean>(Controller.needToNotify());
@@ -12,10 +13,13 @@ function Header() {
 
     function changeBell() {
         Controller.changeNotifications()
+        if(Controller.needToNotify()) {
+            toast.success('Notificações ativadas para moedas com rendimento acima de 10%')
+        } else {
+            toast('Notificações desativadas!')
+        }
         setActiveBell(!activeBell)
     }
-
-
 
     return (
         <>

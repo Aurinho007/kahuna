@@ -24,13 +24,12 @@ interface ModalAddInvest {
 function ModalAddInvest(props: ModalAddInvest) {
     const handleClose = () =>  props.setShowModalAddInvest(false) 
     const [coin, setCoin] = useState<string>('');
+    const [simbol, setSimbol] = useState<string>('Cripto')
     const [purchaseDate, setPurchaseDate] = useState<string>(dateToTextFR(new Date()));
     const [purchasePrice, setPurchasePrice] = useState<string>('');
     const [amount, setAmount] = useState<string>('');
 
     const [cripto, setCripto] = useState<number>(0)
-
-    
 
     useEffect(() => {
 
@@ -83,7 +82,7 @@ function ModalAddInvest(props: ModalAddInvest) {
 
     function clearInputs() {
         setCoin('');
-        setPurchaseDate(new Date());
+        setPurchaseDate(String(new Date()));
         setPurchasePrice('');
         setAmount('');
     }
@@ -117,12 +116,18 @@ function ModalAddInvest(props: ModalAddInvest) {
 
     //________________________________
 
-      
+    function formatSimbol(input: string) {
+        CoinApi.getAllCoins().map(coin => {
+            if(coin.ticker === input.split(' - ')[0]) {
+                setSimbol(input.split(' - ')[0])
+            }
+        })
+    }
 
     return <>
         <Toaster
             toastOptions={{className: 'toaster'}}
-            position="top-right"
+            position="top-center"
             reverseOrder={false}
         />
         <Modal show={props.showModalAddInvest} onHide={handleClose} className="modal" centered> 
@@ -143,8 +148,9 @@ function ModalAddInvest(props: ModalAddInvest) {
                             list="coins"
                             autoComplete='off'
                             spellCheck={false}
-                            value={coin}
+                            defaultValue={coin}
                             onChange={(e) => setCoin(e.target.value)}
+                            onBlur={(e) => formatSimbol(e.target.value)}
                         />
 
                         <datalist id="coins">
@@ -208,7 +214,7 @@ function ModalAddInvest(props: ModalAddInvest) {
                         <Form.Group className="mb-3" controlId="amount">
                             <Form.Label className="label-input">Quantia em cripto</Form.Label>
                             <InputGroup className="mb-3">
-                                <InputGroup.Text className="type-label">{ coin.split(" - ")[0] }</InputGroup.Text>
+                                <InputGroup.Text className="type-label">{ simbol }</InputGroup.Text>
                                 <Form.Control
                                     className="modal-input readonly"
                                     autoComplete='off'
