@@ -1,11 +1,7 @@
 .filter-icon {
     font-size: 1.3rem;
-    color: var(--white);
-
-}
-
-#btn-filter {
     color: var(--white) !important;
+
 }
 
 .alpha {

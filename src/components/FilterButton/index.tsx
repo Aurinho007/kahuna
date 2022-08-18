@@ -35,7 +35,7 @@ function FilterButton(props: FilterButtonProps) {
     return (
         <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic" className="filter-icon">
-                <BsFilter id="btn-filter" />
+                <BsFilter className="filter-icon" id="btn-filter" />
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
