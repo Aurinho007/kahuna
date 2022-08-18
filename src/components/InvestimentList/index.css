@@ -71,6 +71,10 @@
     max-width: 920px;
 }
 
+#dropdown-basic {
+    --bs-btn-focus-shadow-rgb: var(--blue);
+}
+
 .accordion {
     --bs-accordion-btn-focus-border-color: var(--grafite);
     --bs-accordion-btn-focus-box-shadow:  var(--grafite);
