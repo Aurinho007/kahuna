@@ -9,19 +9,23 @@ import Container from 'react-bootstrap/Container';
 import CoinApi from '../../services/CoinApi';
 import toast, { Toaster } from 'react-hot-toast';
 import './index.css';
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
 import Controller from '../../controllers/Controller';
 import Investiment from '../../types/Investiment';
-import { dateToTextFR, formatPrice, moneyStringToFloat } from '../../helpers/Helper'; 
+import { dateToTextFR, formatPrice, moneyStringToFloat, textToDate } from '../../helpers/Helper'; 
+import { UserContext } from '../../contexts/UserContext';
 
 interface ModalAddInvest {
     headerTitle: string
     mainButtonText: string
+    isAddInvest: boolean
     showModalAddInvest: boolean
-    setShowModalAddInvest: (value: boolean) => void
+    setShowModalAddInvest: Dispatch<SetStateAction<boolean>>
+    invest?: Investiment
 }
 
 function ModalAddInvest(props: ModalAddInvest) {
+    const { setInvestimentsToShow } = useContext(UserContext)
     const handleClose = () =>  props.setShowModalAddInvest(false) 
     const [coin, setCoin] = useState<string>('');
     const [simbol, setSimbol] = useState<string>('Cripto')
@@ -30,6 +34,17 @@ function ModalAddInvest(props: ModalAddInvest) {
     const [amount, setAmount] = useState<string>('');
 
     const [cripto, setCripto] = useState<number>(0)
+
+    useEffect(() => {
+        if(props.invest){
+            setCoin(`${props.invest.ticker} - ${props.invest.name}`);
+            formatSimbol(coin);
+            setPurchaseDate(dateToTextFR(new Date(props.invest.purchaseDate)));
+            setPurchasePrice(String(props.invest.purchasePrice));
+            setAmount(String(props.invest.amount));
+        }
+
+    }, [])
 
     useEffect(() => {
 
@@ -45,6 +60,14 @@ function ModalAddInvest(props: ModalAddInvest) {
             return;
         }
 
+        if(props.isAddInvest)
+            createInvestiment()
+        else
+            updateInvestiment()
+    }
+
+    function createInvestiment(){
+
         const investiment: Investiment = {
             id: 0,
             ticker: coin.split(' - ')[0],
@@ -59,6 +82,21 @@ function ModalAddInvest(props: ModalAddInvest) {
         clearInputs();
         handleClose();
         toast.success('Investimento adicionado!');
+    }
+
+    function updateInvestiment(){
+
+        Controller.updateInvestiment({
+            id: props.invest?.id ? props.invest?.id : 0,
+            amount: moneyStringToFloat(amount),
+            favorite: props.invest?.favorite ? props.invest?.favorite : false,
+            name: coin.split(" - ")[1],
+            purchaseDate: textToDate(purchaseDate),
+            purchasePrice: moneyStringToFloat(purchasePrice),
+            ticker: coin.split(" - ")[0]
+        })
+        setInvestimentsToShow && setInvestimentsToShow(Controller.getAllInvestiments());
+        handleClose()
     }
 
     function validateFields(): boolean {
@@ -170,6 +208,7 @@ function ModalAddInvest(props: ModalAddInvest) {
                                 type="date"
                                 autoComplete='off'
                                 value={purchaseDate}
+                                max={ dateToTextFR(new Date()) }
                                 onChange={(e) => setPurchaseDate(e.target.value)}
                             />
                         </Form.Group>
