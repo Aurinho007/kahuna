@@ -13,7 +13,7 @@ function Home() {
         <div className="home">
             <div className="home-container fst-container">
                 <h1>Gerencie suas criptomoedas</h1>
-                <h5>Mantenha o controle sobre seus investimentos de forma fácil</h5>
+                <h5>Mantenha o controle sobre seus investimentos</h5>
                 <button onClick={() => {
                     navigate('/manager');
                 }}>

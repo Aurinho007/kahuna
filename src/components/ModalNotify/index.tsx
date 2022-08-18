@@ -28,19 +28,13 @@ function ModalNotify() {
             if (context.loadData) {
                 data = await context.loadData(inv.ticker)
                 let total = (inv.amount / inv.purchasePrice) * data?.currentPriceBRL
-                let gains = Math.abs(1 - (inv.amount / total)) * 100
+                let gains = (1 - (inv.amount / total)) * 100
 
                 if (gains > 10) {
                     setGreaters((greaters) => [...greaters, { id: inv.id, ticker: data.ticker, gain: gains }])
                     context.setShowNotify ? context.setShowNotify(true) : '';
                     setContent('show')
                 }
-            }
-
-            if (greaters === []) {
-                setContent('none');
-            } else {
-                setShowThis(Controller.needToNotify());
             }
         });
 
@@ -53,6 +47,15 @@ function ModalNotify() {
     useEffect(() => {
         loadCoinsInfo()
     }, []);
+
+    useEffect(() => {
+        if (greaters.length === 0) {
+            setContent('none');
+            setShowThis(false)
+        } else {
+            setShowThis(Controller.needToNotify());
+        }
+    }, [greaters])
 
     return (
         <Modal show={showThis} onHide={handleClose}>
