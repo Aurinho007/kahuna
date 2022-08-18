@@ -60,7 +60,7 @@ function ModalNotify() {
             <Modal.Body>
                 <div className="modal-notify-container">
                     {
-                        greaters !== [] && content !== 'default' ?
+                        greaters.length === 0 && content !== 'default' ?
                         <>
                             <div className="title-container">
                                 <p className='modal-notify-title'>As moedas abaixo renderam mais de 10%</p>

@@ -31,9 +31,6 @@ function CardBody(params: CardBodyProps) {
 
     useEffect(() => {
         loadApi()
-        setInterval(() => {
-            loadApi()
-        }, 10000)
     }, [])
 
     function removeInvestiment() : void {
