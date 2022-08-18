@@ -5,7 +5,7 @@ import { dateToTextBR, formatBRLCurrency } from '../../helpers/Helper';
 import CoinApi from '../../services/CoinApi';
 import CoinInfo from '../../types/CoinInfo';
 import Investiment from '../../types/Investiment';
-import InvestimentItem from '../InvestimentItem';
+import ModalAddInvest from '../ModalAddInvest';
 import './index.css'
 
 interface CardBodyProps {
@@ -18,6 +18,9 @@ function CardBody(params: CardBodyProps) {
     const [total, setTotal] = useState<number>();
 
     const [deletedId, setDeletedId] = useState<number>()
+
+    const [showModalAddInvest, setShowModalAddInvest] = useState<boolean>(false);
+
 
     async function loadApi() {
         const data = await CoinApi.getCoinInfo(params.props.ticker);
@@ -38,13 +41,16 @@ function CardBody(params: CardBodyProps) {
         params.setUpdateView(params.props.id)
     }
 
-    function empty(): void{
-
-    }
-    
-
     return ( 
         <section className="container">
+        <ModalAddInvest 
+            headerTitle={'Editar investimento'}
+            mainButtonText={'Salvar'}
+            showModalAddInvest={showModalAddInvest}
+            setShowModalAddInvest={setShowModalAddInvest}
+            invest={params.props}
+            isAddInvest={false}
+        />
 
         <div className="container-card-body">
             <div className="user-purchase">
@@ -140,7 +146,7 @@ function CardBody(params: CardBodyProps) {
         </div>
 
         <div className='user-actions'>
-            <button className='action' onClick={() => alert("Em breve!")}>Editar</button>
+            <button className='action' onClick={() => setShowModalAddInvest(!showModalAddInvest)}>Editar</button>
             <button className='action' onClick={() => confirm("Tem certeza que deseja apagar este investimento?")  ? removeInvestiment() : 0 }>Apagar</button>
         </div>
         </section>

@@ -9,7 +9,6 @@ import KButton from '../KButton';
 import ModalAddInvest from '../ModalAddInvest';
 import { UserContext } from '../../contexts/UserContext';
 import './index.css'
-import Investiment from '../../types/Investiment';
 
 function InvestmentList() {
     const [updateView, setUpdateView] = useState<number>();
@@ -19,7 +18,7 @@ function InvestmentList() {
     useEffect(() => {
         setInvestimentsToShow && setInvestimentsToShow(Controller.getAllInvestiments());
     }, [updateView])
-    
+
     return (
         <section id="container-investment-list">
             <div className="investiments-header">
@@ -38,13 +37,13 @@ function InvestmentList() {
             </div>
 
             <ModalAddInvest 
-                {...{
-                        headerTitle: 'Adicione um novo investimento',
-                        mainButtonText: 'Adicionar',
-                        showModalAddInvest, setShowModalAddInvest
-                    }
-                }
+                headerTitle={'Adicione um novo investimento'}
+                mainButtonText={'Adicionar'}
+                showModalAddInvest={showModalAddInvest}
+                setShowModalAddInvest={setShowModalAddInvest}
+                isAddInvest={true}
             />
+
             <div id="investment-list"> 
                 <Accordion flush>
                     {Controller.getAllInvestiments().map(inv => {

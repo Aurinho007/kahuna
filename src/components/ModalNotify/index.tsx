@@ -85,7 +85,6 @@ function ModalNotify() {
                                 <tbody>
                                     {
                                         greaters?.map(greater => {
-                                            console.log(greater)
                                             return (
                                                 <tr key={greater.id}>
                                                     <td>
