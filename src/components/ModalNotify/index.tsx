@@ -17,7 +17,7 @@ function ModalNotify() {
     const context = useContext(NotifyContext);
     const investiments: Array<Investiment> = Controller.getAllInvestiments();
     const [showThis, setShowThis] = useState<boolean>(false);
-    const [content, setContent] = useState<string>();
+    const [content, setContent] = useState<string>('none');
     const [greaters, setGreaters] = useState<Array<Greater>>([]);
 
     const handleClose = () => setShowThis(false);
@@ -33,24 +33,16 @@ function ModalNotify() {
                 if (gains > 10) {
                     setGreaters((greaters) => [...greaters, { id: inv.id, ticker: data.ticker, gain: gains }])
                     context.setShowNotify ? context.setShowNotify(true) : '';
-                    setContent('show')
+                    setContent('show');
                 }
+                setShowThis(Controller.needToNotify());
             }
         });
     }
-
+    
     useEffect(() => {
         loadCoinsInfo()
     }, []);
-
-    useEffect(() => {
-        if (greaters.length === 0) {
-            setContent('none');
-            setShowThis(false)
-        } else {
-            setShowThis(Controller.needToNotify());
-        }
-    }, [greaters])
 
     return (
         <Modal show={showThis} onHide={handleClose}>
@@ -60,7 +52,7 @@ function ModalNotify() {
             <Modal.Body>
                 <div className="modal-notify-container">
                     {
-                        greaters.length === 0 && content !== 'default' ?
+                        greaters.length !== 0 && content === 'show' ?
                         <>
                             <div className="title-container">
                                 <p className='modal-notify-title'>As moedas abaixo renderam mais de 10%</p>
@@ -96,9 +88,11 @@ function ModalNotify() {
                             </Table>
                         </>
                         :
+                        greaters.length === 0 && content === 'none' ?
                         <div className="title-container">
                             <p className='modal-notify-title'>Ainda não existem moedas que renderam mais 10% 😢</p>
                         </div>
+                        : <></>
                     }
                 </div>
             </Modal.Body>
