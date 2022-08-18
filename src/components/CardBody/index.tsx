@@ -16,11 +16,7 @@ interface CardBodyProps {
 function CardBody(params: CardBodyProps) {
     const [api, setApi] = useState<CoinInfo>();
     const [total, setTotal] = useState<number>();
-
-    const [deletedId, setDeletedId] = useState<number>()
-
     const [showModalAddInvest, setShowModalAddInvest] = useState<boolean>(false);
-
 
     async function loadApi() {
         const data = await CoinApi.getCoinInfo(params.props.ticker);
@@ -28,6 +24,10 @@ function CardBody(params: CardBodyProps) {
 
         setTotal((params.props.amount / params.props.purchasePrice) * data?.currentPriceBRL);
     }
+
+    useEffect(() => {
+        loadApi();
+    });
 
     useEffect(() => {
         loadApi()
