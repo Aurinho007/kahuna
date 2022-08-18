@@ -2,6 +2,7 @@
   "name": "kahuna",
   "private": true,
   "version": "0.0.0",
+  "homepage": "http://kahuna.vercel.app/",
   "type": "module",
   "scripts": {
     "dev": "vite",
