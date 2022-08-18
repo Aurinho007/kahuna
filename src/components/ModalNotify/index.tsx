@@ -37,11 +37,6 @@ function ModalNotify() {
                 }
             }
         });
-
-        if(greaters === []) {
-            setShowThis(false)
-        }
-
     }
 
     useEffect(() => {
