@@ -14,7 +14,7 @@ function App() {
                 position="top-center"
                 reverseOrder={false}
             />
-            <Router basename={window.location.pathname}>
+            <Router>
                 <Routes>
                     <Route path='/' element={<Home/>} />
                     <Route path='/manager' element={<Manager/>} />
