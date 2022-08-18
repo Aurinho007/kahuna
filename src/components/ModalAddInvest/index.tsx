@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Container from 'react-bootstrap/Container';
 import CoinApi from '../../services/CoinApi';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import './index.css';
 import { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
 import Controller from '../../controllers/Controller';
@@ -163,11 +163,6 @@ function ModalAddInvest(props: ModalAddInvest) {
     }
 
     return <>
-        <Toaster
-            toastOptions={{className: 'toaster'}}
-            position="top-center"
-            reverseOrder={false}
-        />
         <Modal show={props.showModalAddInvest} onHide={handleClose} className="modal" centered> 
             <Modal.Header closeButton>
                 <Modal.Title className="modal-title">{props.headerTitle}</Modal.Title>
