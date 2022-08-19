@@ -107,7 +107,7 @@ function CardBody(params: CardBodyProps) {
                 </div>
                 <div className="user-purchase-info">
                     <span className="user-purchase-label">
-                        Valorização em 24h
+                        Variação em 24h
                     </span>
                     <span className={`user-purchase-value ${api?.growth && api?.growth > 0 ? 'colored-gain' : 'colored-lost'}`}>
                         {api?.growth && api?.growth > 0 ? '+' : '' } {api?.growth.toFixed(2)}%
