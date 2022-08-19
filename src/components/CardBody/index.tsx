@@ -27,7 +27,7 @@ function CardBody(params: CardBodyProps) {
 
     useEffect(() => {
         loadApi()
-    }, [])
+    }, [params.props])
 
     function removeInvestiment() : void {
         Controller.removeInvestiment(params.props);
